@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,700;0,900;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Domine&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Secular+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Racing+Sans+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Paytone+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Moul&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/cart.css">
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@700&display=swap" rel="stylesheet">
+    <title>Shop Book</title>
+</head>
+
+<body>
+    <header>
+        <marquee class="box">
+            <div class="">"Việc đọc rất quan trọng! Nếu bạn biết cách đọc, cả thế giới sẽ mở ra cho bạn." - Barack Obama</div>
+        </marquee>
+
+        <!-- <div class="box">"Việc đọc rất quan trọng! Nếu bạn biết cách đọc, cả thế giới sẽ mở ra cho bạn" - Barack Obama</div> -->
+        <div class="header-cart">
+            <h1 class="logo">BookStore</h1>
+            <div class="nav">
+                <ul>
+                    <li class="dropdown-1">
+                        <a href="../html/index.html">Về BookStore</a>
+                        <div class="dropdown-content">
+                            <a href="#">Về BookStore</a>
+                            <a href="#">Tìm đồng đội</a>
+                        </div>
+                    </li>
+                    <li class="dropdown-2">
+                        <a href="../html/product.html">Sách</a>
+                        <div class="dropdown-content">
+                            <a href="#">Trẻ em</a>
+                            <a href="#">Tuổi Teen</a>
+                            <a href="#">Người lớn</a>
+                        </div>
+                    </li>
+                    <li class="dropdown-3">
+                        <a href="../html/product.html">Tủ sách</a>
+                        <div class="dropdown-content">
+                            <a href="#">Best seller mọi thời đại</a>
+                            <a href="#">Sách mới,sách hay</a>
+                            <a href="#">Nhà quản lí-quản trị</a>
+                            <a href="#">Ceo đọc sách gì</a>
+                            <a href="#">Qùa tặng vô giá cho con</a>
+                            <a href="#">Phong cách sống</a>
+                        </div>
+                    </li>
+                    <li><a href="../html/product.html">Tác giả Bestseller</a></li>
+                    <li><a href="../html/product.html">Blog</a></li>
+                </ul>
+            </div>
+            <div class="search">
+                <i class='bx bx-search'></i>
+                <input type="text" placeholder="Tìm kiếm sản phẩm">
+            </div>
+            <div class="icon">
+                <table>
+                    <thead>
+                        <th><i class='bx bx-user'></i></th>
+                        <th><i class='bx bx-cart'></i></th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><a href="formlogin.html">Tài khoản</a></td>
+                            <td><a href="#">Giỏ hàng</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </header>
+    <!--TẠO KHUNG GIỎ HÀNG-->
+    <div class="cart">
+        <h1 class="name-cart">Shopping Cart</h1>
+        <hr class="dash">
+    </div>
+    <div class="small-container cart-page">
+        <table class="total">
+            <tr>
+                <th>Remove</th>
+                <th>Image</th>
+                <th>Product</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Total</th>
+            </tr>
+            <tr>
+                <td><a href="delete.page?id=1" onclick="return confirm('Bạn có chắc chắn xóa không ?')"><i class='bx bx-trash'></i></a> </td>
+                <td><img src="../img-index/sach19.jpg" alt=""></td>
+                <td>
+                    <h5>Phải Lòng Với Cô Đơn</h5>
+                </td>
+                <td>
+                    <h5>$65</h5>
+                </td>
+                <td><input type="number" value="1"></td>
+                <td>
+                    <h5>150.000đ</h5>
+                </td>
+            </tr>
+            <tr>
+                <td><a href="#"><i class='bx bx-trash'></i></a></td>
+                <td><img src="../img-index/sach20.jpg" alt=""></td>
+                <td>
+                    <h5>Đừng Hoài Phí Tuổi Trẻ</h5>
+                </td>
+                <td>
+                    <h5>$65</h5>
+                </td>
+                <td><input type="number" value="1"></td>
+                <td>
+                    <h5>150.000đ</h5>
+                </td>
+            </tr>
+            <tr>
+                <td><a href="#"><i class='bx bx-trash'></i></a></td>
+                <td><img src="../img-index/sach22.jpg" alt=""></td>
+                <td>
+                    <h5>Làm Bạn Với Bầu Trời</h5>
+                </td>
+                <td>
+                    <h5>$65</h5>
+                </td>
+                <td><input type="number" value="1"></td>
+                <td>
+                    <h5>150.000đ</h5>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="cart-bottom">
+        <div class="row">
+            <div class="coupon">
+                <div>
+                    <h5>COUPON</h5>
+                    <p>Enter your coupon code if you have one.</p>
+                    <input type="text" placeholder="Coupon Code">
+                    <button class="apply"><a href="#">APPLY COUPON</a></button>
+                </div>
+            </div>
+            <div class="cart-total">
+                <div>
+                    <h5>CART TOTAL</h5>
+                    <div class="cart-total-1">
+                        <h6>Subtotal</h6>
+                        <p>$215.00</p>
+                    </div>
+                    <div class="cart-total-2">
+                        <h6>Shipping</h6>
+                        <p>$215.00</p>
+                    </div>
+                    <hr class="hr-1">
+                    <div class="cart-total-3">
+                        <h6>Total</h6>
+                        <p>$215.00</p>
+                    </div>
+                    <button class="apply"><a href="#">PROCEED TO CHECKOUT</a></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="end-1"></div>
+    <footer>
+        <div class="footer">
+            <div class="f1">
+                <h1>Nhà sách online BookStore</h1>
+                <p>Trang sách nhỏ mở Thể giới lớn</p>
+                <img src="../img/Picture3.png" alt="">
+                <!-- <img src="img/Picture2.png" alt=""> -->
+            </div>
+            <div class="f2">
+                <h1>Địa điểm</h1>
+                <ul>
+                    <li>Nhà sách Kala, Phố Sách Hà Nội, 19/12 Lý Thường Kiệt, Phường Trần Hưng Đạo, Quận Hoàn Kiếm, Hà Nội</li>
+                    <li>0367 19 5476</li>
+                    <li>support@kalabooks.vn</li>
+                </ul>
+            </div>
+            <div class="f3">
+                <h1>Hỗ trợ khách hàng</h1>
+                <ul>
+                    <li><a href="#">Tìm kiếm</a></li>
+                    <li><a href="#">Về Kala</a></li>
+                    <li><a href="#">Chính sách đổi trả</a></li>
+                    <li><a href="#">Chính sách bảo mật</a></li>
+                    <li><a href="#">Điều khoản dịch vụ</a></li>
+                    <li><a href="#">Liên hệ</a></li>
+                </ul>
+            </div>
+            <div class="f4">
+                <h1>Chăm sóc khách hàng</h1>
+                <h2 class="f-icon"><i class='bx bx-phone-call'></i> 0367 19 5476</h2>
+                <h3>Follow Us</h3>
+                <a href="#"><i class='bx bxl-facebook' ></i></a>
+                <a href="#"><i class='bx bxl-twitter' ></i></a>
+                <a href="#"><i class='bx bxl-instagram' ></i></a>
+                <a href="#"><i class='bx bxl-google-plus' ></i></a>
+                <a href="#"><i class='bx bxl-youtube' ></i></a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>

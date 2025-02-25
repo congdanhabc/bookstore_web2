@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/doan.css">
+    <link rel="stylesheet" href="../css/orders.css">
+    <title>Book Store</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="navigation">
+            <ul>
+                <li>
+                    <a href="../Admin/Doan.html">
+                        <span class="icon"><ion-icon name="book-outline"></ion-icon></span>
+                        <span class="title">Book Store</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="../Admin/Doan.html">
+                        <span class="icon"><ion-icon name="home-outline"></ion-icon></span>
+                        <span class="title">Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="../Admin/customers.html">
+                        <span class="icon"><ion-icon name="people-outline"></ion-icon></span>
+                        <span class="title">Customers</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="../Admin/new_products.html">
+                        <span class="icon"><ion-icon name="bag-outline"></ion-icon></span>
+                        <span class="title">New Products</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="../Admin/orders.html">
+                        <span class="icon"><ion-icon name="cart-outline"></ion-icon></ion-icon></span>
+                        <span class="title">Orders</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="../Admin/inventory.html">
+                        <span class="icon"><ion-icon name="storefront-outline"></ion-icon></span>
+                        <span class="title">Inventory</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="../Admin/Password.html">
+                        <span class="icon"><ion-icon name="person-circle-outline"></ion-icon></span>
+                        <span class="title">Accounts</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="../html/formlogin.html">
+                        <span class="icon"><ion-icon name="log-out-outline"></ion-icon></span>
+                        <span class="title">Sign Out</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <!--main-->
+        <div class="main">
+            <div class="topbar">
+                <div class="toggle">
+                    <ion-icon name="menu-outline"></ion-icon>
+                </div>
+                <!--search-->
+                <div class="search">
+                    <label>
+                    <input type="text" placeholder="Search here">
+                    <ion-icon name="search-outline"></ion-icon>
+                </label>
+                </div>
+                <!--userimg-->
+                <div class="user">
+                    <img src="../img/user.png" alt="">
+                </div>
+            </div>
+
+            <div class="content">
+                <div class="cards-1">
+                    <div class="content-2">
+                        <div class="recent-payments">
+                            <div class="cardHeader">
+                                <h2>Khách hàng đặt hàng online gần nhất</h2>
+                            </div>
+                            <table>
+                                <tr>
+                                    <th>STT</th>
+                                    <th>Ảnh</th>
+                                    <th>Họ & Tên</th>
+                                    <th>Số điện thoại</th>
+                                    <th>Thời gian</th>
+                                    <th>Đặt hàng</th>
+                                    <th>Sản phẩm</th>
+                                    <th>Số lượng</th>
+                                    <th>Tổng cộng</th>
+                                    <th>Giảm giá</th>
+                                    <th>Hành động</th>
+                                </tr>
+
+                                <tr>
+                                    <td>1</td>
+                                    <td><img class="profile" src="../img/boy.png" alt=""></td>
+                                    <td>Hoàng Nam</td>
+                                    <td><a class="tel-phone" href="tel:0978485868">09.78.48.58.68</a></td>
+                                    <td>9:30am</td>
+                                    <td>10/11/2022</td>
+                                    <td><img class="profile-1" src="../img/thay_doi_mot_suy_nghi_thay_doi_ca_cuoc_doi.jpg" alt=""><img class="profile-1" src="../img/dev_up.jpg" alt=""></td>
+                                    <td class="amount">2</td>
+                                    <td>201.000đ</td>
+                                    <td class="discount">Đã giảm 10%</td>
+                                    <td class="group-btn">
+                                        <a class="btn-2" href="">Thêm<a class="btn-3" href="delete.page?id=1" onclick="return confirm('Bạn có chắc chắn xóa không ?')">Xoá</a></a>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>2</td>
+                                    <td><img class="profile" src="../img/boy.png" alt=""></td>
+                                    <td>Đặng Bảo</td>
+                                    <td><a class="tel-phone" href="tel:0978485868">09.78.48.58.68</a></td>
+                                    <td>8:49am</td>
+                                    <td>10/11/2022</td>
+                                    <td><img class="profile-1" src="../img/nguoi_nhay_cam.jpg" alt=""></td>
+                                    <td class="amount">1</td>
+                                    <td>65.000đ</td>
+                                    <td class="discount">Đã giảm 3%</td>
+                                    <td class="group-btn">
+                                        <a class="btn-2" href="">Thêm<a class="btn-3" href="delete.page?id=1" onclick="return confirm('Bạn có chắc chắn xóa không ?')">Xoá</a></a>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>3</td>
+                                    <td><img class="profile" src="../img/girl.png" alt=""></td>
+                                    <td>Lan Ngọc</td>
+                                    <td><a class="tel-phone" href="tel:0978485868">09.78.48.58.68</a></td>
+                                    <td>8:28am</td>
+                                    <td>09/11/2022</td>
+                                    <td><img class="profile-1" src="../img/tam_ly_hoc_moi_quan_he.jpg" alt=""><img class="profile-1" src="../img/living_big.jpg" alt=""><img class="profile-1" src="../img/ho_so_tam_ly.jpg" alt=""><img class="profile-1" src="../img/gia_nhu_toi_biet_truoc_dieu_nay_khi_thi_dai_hoc.jpg"
+                                            alt=""></td>
+                                    <td class="amount">4</td>
+                                    <td>389.370đ</td>
+                                    <td class="discount">Đã giảm 20%</td>
+                                    <td class="group-btn">
+                                        <a class="btn-2" href="">Thêm<a class="btn-3" href="delete.page?id=1" onclick="return confirm('Bạn có chắc chắn xóa không ?')">Xoá</a></a>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>4</td>
+                                    <td><img class="profile" src="../img/girl.png" alt=""></td>
+                                    <td>Hồng Nga</td>
+                                    <td><a class="tel-phone" href="tel:0978485868">09.78.48.58.68</a></td>
+                                    <td>7:51am</td>
+                                    <td>08/11/2022</td>
+                                    <td><img class="profile-1" src="../img/nhung_dieu_tot_dep.jpg" alt=""></td>
+                                    <td class="amount">1</td>
+                                    <td>78.000đ</td>
+                                    <td class="discount">Đã giảm 3%</td>
+                                    <td class="group-btn">
+                                        <a class="btn-2" href="">Thêm<a class="btn-3" href="delete.page?id=1" onclick="return confirm('Bạn có chắc chắn xóa không ?')">Xoá</a></a>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>5</td>
+                                    <td><img class="profile" src="../img/boy.png" alt=""></td>
+                                    <td>Hữu Nghĩa</td>
+                                    <td><a class="tel-phone" href="tel:0978485868">09.78.48.58.68</a></td>
+                                    <td>7:21am</td>
+                                    <td>08/11/2022</td>
+                                    <td><img class="profile-1" src="../img/2000_tu_tieng_anh.jpg" alt=""><img class="profile-1" src="../img/hanh_tinh_cua_1_ke_nghi_nhieu.jpg" alt=""></td>
+                                    <td class="amount">2</td>
+                                    <td>190.300đ</td>
+                                    <td class="discount">Đã giảm 9%</td>
+                                    <td class="group-btn">
+                                        <a class="btn-2" href="">Thêm<a class="btn-3" href="delete.page?id=1" onclick="return confirm('Bạn có chắc chắn xóa không ?')">Xoá</a></a>
+                                    </td>
+                                </tr>
+
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+
+                <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+                <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+                <script>
+                    //Menu
+                    let toggle = document.querySelector('.toggle');
+                    let navigation = document.querySelector('.navigation');
+                    let main = document.querySelector('.main');
+
+                    toggle.onclick = function() {
+                        navigation.classList.toggle('active');
+                        main.classList.toggle('active');
+                    }
+
+
+
+                    //add hovered class in selected list item
+                    let list = document.querySelectorAll('.navigation li');
+
+                    function activeLink() {
+                        list.forEach((item) =>
+                            item.classList.remove('hovered'));
+                        this.classList.add('hovered');
+                    }
+                    list.forEach((item) =>
+                        item.addEventListener('mouseover', activeLink));
+                </script>
+
+
+</body>
+
+</html>

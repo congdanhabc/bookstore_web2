@@ -1,0 +1,133 @@
+.recent-payments {
+    position: relative;
+    display: grid;
+    min-height: 500px;
+    background: var(--white);
+    padding: 20px;
+    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+    border-radius: 20px;
+}
+
+.content .recent-payments table tr td:nth-child(1) {
+    text-align: center;
+}
+
+.content .recent-payments table tr td:nth-child(2) {
+    text-align: center;
+}
+
+.content .recent-payments table tr td:nth-child(3) {
+    text-align: center;
+}
+
+.content .recent-payments table tr td:nth-child(4) {
+    text-align: center;
+}
+
+.content .recent-payments table tr td:nth-child(5) {
+    text-align: center;
+}
+
+.content .recent-payments table tr td:nth-child(6) {
+    text-align: center;
+}
+
+.content .recent-payments table tr td:nth-child(7) {
+    text-align: center;
+}
+
+.content .recent-payments table tr td:nth-child(8) {
+    text-align: center;
+}
+
+.content .recent-payments table tr td:nth-child(9) {
+    text-align: center;
+}
+
+.content .recent-payments table tr td:nth-child(10) {
+    text-align: center;
+}
+
+.content .recent-payments table tr td:nth-child(11) {
+    text-align: center;
+}
+
+.container .content .cards-1 {
+    padding: 20px 15px;
+}
+
+img.profile {
+    width: 35px;
+    height: 25px;
+    padding: 0 10px 0 0;
+    align-items: center;
+    justify-content: center;
+}
+
+.tel-phone {
+    color: #101aef;
+    opacity: 0.8;
+    text-decoration: none;
+}
+
+.tel-phone:hover {
+    opacity: 1;
+}
+
+img.profile-1 {
+    width: 90px;
+    height: 120px;
+    padding: 0 10px 0 0;
+    align-items: center;
+    justify-content: center;
+}
+
+.discount {
+    font-weight: bolder;
+}
+
+.discount:hover {
+    opacity: 1;
+    color: red;
+}
+
+.group-btn .btn-2 {
+    background-color: #101aef;
+    color: white;
+    border: #101aef solid;
+    margin-right: 5px;
+    text-decoration: none;
+}
+
+.group-btn .btn-2:hover {
+    opacity: 1;
+    color: #101aef;
+    font-weight: bolder;
+    background-color: white;
+    border: #101aef solid;
+    margin-right: 5px;
+}
+
+.group-btn .btn-3 {
+    background-color: red;
+    color: white;
+    border: red solid;
+    text-decoration: none;
+}
+
+.group-btn .btn-3:hover {
+    opacity: 1;
+    color: red;
+    font-weight: bolder;
+    background-color: white;
+    border: red solid;
+}
+
+.amount {
+    font-weight: bolder;
+}
+
+.amount:hover {
+    opacity: 0.5;
+    color: red;
+}
