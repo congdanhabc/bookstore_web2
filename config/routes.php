@@ -11,7 +11,7 @@
 // Lưu ý: này mới tạo thử thôi, trong quá trình làm có thể sửa lại cho phù hợp
 
 // Trang chủ
-$router->addRoute('/', ['controller' => 'App\Controllers\HomeController', 'action' => 'index'], 'GET', 'home'); //chưa
+$router->addRoute('/', ['controller' => 'App\Controllers\HomeController', 'action' => 'index'], 'GET', 'home');
 
 // Danh sách sách
 $router->addRoute('/books', ['controller' => 'BookController', 'action' => 'index'], 'GET', 'books.index');//chưa
