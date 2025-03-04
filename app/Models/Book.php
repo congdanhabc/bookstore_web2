@@ -11,6 +11,7 @@ class Book {
     public $author;
     public $description;
     public $price;
+    public $sale_price;
     public $image;
     public $stock;
     public $created_at;
@@ -25,6 +26,7 @@ class Book {
         $book->author = Author::getAuthorName($bookData['author_id'], $db); // Lấy tên tác giả từ bảng authors
         $book->description = $bookData['description'];
         $book->price = $bookData['price'];
+        $book->sale_price = $bookData['sale_price'];
         $book->image = $bookData['image'];
         $book->stock = $bookData['stock'];
         $book->created_at = $bookData['created_at'];
