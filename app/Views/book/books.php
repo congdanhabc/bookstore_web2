@@ -139,7 +139,7 @@
                                         <p class="text-product-2"><a href="#"><?php echo htmlspecialchars($book->author); ?></a></p>
                                     </div>
                                     <div class="price-product">
-                                        <p class="price-product-1"><?php echo htmlspecialchars($book->price); ?></p>
+                                        <p class="price-product-1"><?php echo htmlspecialchars(number_format($book->price, 0, ',', ' ')); ?> đ</p>
                                         <!-- <p class="price-product-2">200,000đ</p> -->
                                     </div>
                                     <div class="star-product">
