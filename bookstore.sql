@@ -50,7 +50,6 @@ CREATE TABLE IF NOT EXISTS `books` (
   `description` text DEFAULT NULL,
   `publisher_id` int(11) NOT NULL,
   `sale_price` decimal(10,3) NOT NULL DEFAULT 0.000,
-  `discount_percentage` int(11) NOT NULL DEFAULT 0,
   `category_id` int(11) NOT NULL,
   `author_id` int(11) NOT NULL,
   `stock` int(11) NOT NULL DEFAULT 100,
@@ -67,17 +66,17 @@ CREATE TABLE IF NOT EXISTS `books` (
 
 -- Dumping data for table bookstore.books: ~10 rows (approximately)
 DELETE FROM `books`;
-INSERT INTO `books` (`id`, `name`, `slug`, `price`, `image`, `description`, `publisher_id`, `sale_price`, `discount_percentage`, `category_id`, `author_id`, `stock`, `created_at`, `updated_at`) VALUES
-	(1, 'Mắt Biếc', 'mat-biec', 95000.000, 'matbiec.jpg', 'Một câu chuyện tình buồn man mác của Nguyễn Nhật Ánh.', 1, 85500.000, 10, 1, 1, 50, '2025-02-25 10:58:28', '2025-02-25 10:58:28'),
-	(2, 'Dế Mèn Phiêu Lưu Ký', 'de-men-phieu-luu-ky', 80000.000, 'demen.jpg', 'Cuộc phiêu lưu đầy thú vị của chú dế Mèn.', 2, 72000.000, 10, 1, 2, 75, '2025-02-25 10:58:28', '2025-02-25 10:58:28'),
-	(3, 'Số Đỏ', 'so-do', 120000.000, 'sodo.jpg', 'Một tác phẩm trào phúng nổi tiếng của Vũ Trọng Phụng.', 3, 108000.000, 10, 1, 3, 30, '2025-02-25 10:58:28', '2025-02-25 10:58:28'),
-	(4, 'Chí Phèo', 'chi-pheo', 75000.000, 'chipheo.jpg', 'Bi kịch của người nông dân bị tha hóa trong xã hội cũ.', 4, 67500.000, 10, 3, 4, 40, '2025-02-25 10:58:28', '2025-02-25 10:58:28'),
-	(5, 'Nhật Ký Trong Tù', 'nhat-ky-trong-tu', 110000.000, 'nhatkytrongtu.jpg', 'Tuyển tập thơ đầy cảm xúc của Hồ Chí Minh.', 3, 99000.000, 10, 5, 8, 60, '2025-02-25 10:58:28', '2025-02-25 10:58:28'),
-	(6, 'Lão Hạc', 'lao-hac', 65000.000, 'laohac.jpg', 'Một truyện ngắn cảm động về số phận người nông dân nghèo.', 4, 58500.000, 10, 3, 7, 55, '2025-02-25 10:58:28', '2025-02-25 10:58:28'),
-	(7, 'Tam Quốc Diễn Nghĩa', 'tam-quoc-dien-nghia', 250000.000, 'tamquoc.jpg', 'Bộ tiểu thuyết lịch sử kinh điển của Trung Quốc.', 2, 225000.000, 10, 2, 5, 25, '2025-02-25 10:58:28', '2025-02-25 10:58:28'),
-	(8, 'Đắc Nhân Tâm', 'dac-nhan-tam', 150000.000, 'dacnhantam.jpg', 'Sách về kỹ năng giao tiếp và ứng xử.', 1, 135000.000, 10, 6, 4, 80, '2025-02-25 10:58:28', '2025-02-25 10:58:28'),
-	(9, 'Cha Giàu Cha Nghèo', 'cha-giau-cha-ngheo', 180000.000, 'chagiauchangheo.jpg', 'Sách về tư duy tài chính và đầu tư.', 5, 162000.000, 10, 7, 3, 70, '2025-02-25 10:58:28', '2025-02-25 10:58:28'),
-	(10, 'Sử Ký Tư Mã Thiên', 'su-ky-tu-ma-thien', 300000.000, 'suky.jpg', 'Bộ sử đồ sộ của Trung Quốc.', 3, 270000.000, 10, 8, 5, 20, '2025-02-25 10:58:28', '2025-02-25 10:58:28');
+INSERT INTO `books` (`id`, `name`, `slug`, `price`, `image`, `description`, `publisher_id`, `sale_price`, `category_id`, `author_id`, `stock`, `created_at`, `updated_at`) VALUES
+	(1, 'Mắt Biếc', 'mat-biec', 95000.000, 'matbiec.jpg', 'Một câu chuyện tình buồn man mác của Nguyễn Nhật Ánh.', 1, 85500.000, 1, 1, 50, '2025-02-25 10:58:28', '2025-03-04 02:51:28'),
+	(2, 'Dế Mèn Phiêu Lưu Ký', 'de-men-phieu-luu-ky', 80000.000, 'demen.jpg', 'Cuộc phiêu lưu đầy thú vị của chú dế Mèn.', 2, 65000.000, 1, 2, 75, '2025-02-25 10:58:28', '2025-03-04 02:53:07'),
+	(3, 'Số Đỏ', 'so-do', 120000.000, 'sodo.jpg', 'Một tác phẩm trào phúng nổi tiếng của Vũ Trọng Phụng.', 3, 90000.000, 1, 3, 30, '2025-02-25 10:58:28', '2025-03-04 02:53:09'),
+	(4, 'Chí Phèo', 'chi-pheo', 75000.000, 'chipheo.jpg', 'Bi kịch của người nông dân bị tha hóa trong xã hội cũ.', 4, 60000.000, 3, 4, 40, '2025-02-25 10:58:28', '2025-03-04 02:53:11'),
+	(5, 'Nhật Ký Trong Tù', 'nhat-ky-trong-tu', 110000.000, 'nhatkytrongtu.jpg', 'Tuyển tập thơ đầy cảm xúc của Hồ Chí Minh.', 3, 110000.000, 5, 8, 60, '2025-02-25 10:58:28', '2025-03-04 02:53:56'),
+	(6, 'Lão Hạc', 'lao-hac', 65000.000, 'laohac.jpg', 'Một truyện ngắn cảm động về số phận người nông dân nghèo.', 4, 58500.000, 3, 7, 55, '2025-02-25 10:58:28', '2025-03-04 02:51:45'),
+	(7, 'Tam Quốc Diễn Nghĩa', 'tam-quoc-dien-nghia', 250000.000, 'tamquoc.jpg', 'Bộ tiểu thuyết lịch sử kinh điển của Trung Quốc.', 2, 250000.000, 2, 5, 25, '2025-02-25 10:58:28', '2025-03-04 02:53:43'),
+	(8, 'Đắc Nhân Tâm', 'dac-nhan-tam', 150000.000, 'dacnhantam.jpg', 'Sách về kỹ năng giao tiếp và ứng xử.', 1, 135000.000, 6, 4, 80, '2025-02-25 10:58:28', '2025-03-04 02:51:49'),
+	(9, 'Cha Giàu Cha Nghèo', 'cha-giau-cha-ngheo', 180000.000, 'chagiauchangheo.jpg', 'Sách về tư duy tài chính và đầu tư.', 5, 180000.000, 7, 3, 70, '2025-02-25 10:58:28', '2025-03-04 02:53:47'),
+	(10, 'Sử Ký Tư Mã Thiên', 'su-ky-tu-ma-thien', 300000.000, 'suky.jpg', 'Bộ sử đồ sộ của Trung Quốc.', 3, 200000.000, 8, 5, 20, '2025-02-25 10:58:28', '2025-03-04 02:53:15');
 
 -- Dumping structure for table bookstore.carts
 CREATE TABLE IF NOT EXISTS `carts` (
