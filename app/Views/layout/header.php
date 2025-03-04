@@ -226,6 +226,23 @@
 
 </style>
 
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,700;0,900;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Domine&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Secular+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Racing+Sans+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Paytone+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,700;0,900;1,700&display=swap" rel="stylesheet">
+    <title>Shop Book</title>
+</head>
+
 <!--NAVBAR-->
 <header>
         <marquee class="box">
@@ -233,7 +250,7 @@
         </marquee>
 
         <div class="header">
-            <h1><a href="index.php" class="logo">BookStore</a></h1>
+            <h1><a href="/" class="logo">BookStore</a></h1>
             <div class="nav">
                 <ul>
                     <li class="dropdown-1">
@@ -244,36 +261,36 @@
                         </div>
                     </li>
                     <li class="dropdown-2">
-                        <a href="../html/product.html">Sách</a>
+                        <a href="/books">Sách</a>
                         <div class="dropdown-content">
-                            <a href="../html/product.html">Trẻ em</a>
-                            <a href="../html/product.html">Tuổi Teen</a>
-                            <a href="../html/product.html">Người lớn</a>
+                            <a href="/books">Trẻ em</a>
+                            <a href="/books">Tuổi Teen</a>
+                            <a href="/books">Người lớn</a>
                         </div>
                     </li>
                     <li class="dropdown-3">
-                        <a href="../html/product.html">Tủ sách</a>
+                        <a href="/books">Tủ sách</a>
                         <div class="dropdown-content">
-                            <a href="../html/product.html">Best seller mọi thời đại</a>
-                            <a href="../html/product.html">Sách mới,sách hay</a>
-                            <a href="../html/product.html">Nhà quản lí-quản trị</a>
-                            <a href="../html/product.html">Ceo đọc sách gì</a>
-                            <a href="../html/product.html">Qùa tặng vô giá cho con</a>
-                            <a href="../html/product.html">Phong cách sống</a>
+                            <a href="/books">Best seller mọi thời đại</a>
+                            <a href="/books">Sách mới,sách hay</a>
+                            <a href="/books">Nhà quản lí-quản trị</a>
+                            <a href="/books">Ceo đọc sách gì</a>
+                            <a href="/books">Qùa tặng vô giá cho con</a>
+                            <a href="/books">Phong cách sống</a>
                         </div>
                     </li>
                     <li class="dropdown-4">
-                        <a href="../html/product.html">Tác giả Bestseller</a>
+                        <a href="/books">Tác giả Bestseller</a>
                         <div class="dropdown-content">
-                            <a href="../html/product.html">Nguyễn Nhật Ánh</a>
-                            <a href="../html/product.html">John Seymour</a>
-                            <a href="../html/product.html">Michael Scott</a>
-                            <a href="../html/product.html">Andrew Matthews</a>
-                            <a href="../html/product.html">Stephen Hawking</a>
-                            <a href="../html/product.html">Gosinny</a>
+                            <a href="/books">Nguyễn Nhật Ánh</a>
+                            <a href="/books">John Seymour</a>
+                            <a href="/books">Michael Scott</a>
+                            <a href="/books">Andrew Matthews</a>
+                            <a href="/books">Stephen Hawking</a>
+                            <a href="/books">Gosinny</a>
                         </div>
                     </li>
-                    <li><a href="../html/product.html">Blog</a></li>
+                    <li><a href="/books">Blog</a></li>
                 </ul>
             </div>
             <div class="search">

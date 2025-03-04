@@ -116,7 +116,7 @@
             <div class="f1">
                 <h1>Nhà sách online BookStore</h1>
                 <p>Trang sách nhỏ mở Thể giới lớn</p>
-                <img src="/images/Picture3.png" alt="">
+                <img src="/images\icons\Picture3.png" alt="">
             </div>
             <div class="f2">
                 <h1>Địa điểm</h1>

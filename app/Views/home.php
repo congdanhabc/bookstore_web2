@@ -2,30 +2,12 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/style.css">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,700;0,900;1,500;1,700;1,900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Domine&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Secular+One&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Racing+Sans+One&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Paytone+One&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,700;0,900;1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/productinfo.css">
-    <title>Shop Book</title>
 </head>
-<!--NAVBAR-->
 
 <body>
-
-    <header>
-        <?php include APP_DIR . '/Views/layout/header.php'; ?>
-    </header>
+    <?php include APP_DIR . '/Views/layout/header.php'; ?>
     <!--BANNER-->
     <div class="main">
         <div class="banner">
@@ -84,168 +66,6 @@
     <!--TẠO KHUNG VÀ THÔNG TIN SẢN PHẨM THỨ NHẤT-->
     <div class="include">
         <div class="product">
-            <div class="product-1">
-                <a href="../html/productinfo.html"><img class="image-1" src="/images/Screenshot 2022-11-12 182218.png" alt=""></a>
-                <div class="text">
-                    <h1 class="text-1">Nhà xuất bản lẻ</h1>
-                    <p class="text-2"><a href="../html/productinfo.html">Phép Màu Đêm Giáng Sinh</a></p>
-                </div>
-                <div class="price">
-                    <p class="price-index">150,000đ</p>
-                    <p class="price-index-1">135,000đ</p>
-                </div>
-                <div class="star">
-                    <p><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i></p>
-                </div>
-                <button class="buy"><a href="../html/formlogin.html">BUY NOW</a></button>
-                <div class="price-down-index">
-                    <h2 class="price-down-index-1">-10%</h2>
-                </div>
-            </div>
-            <div class="product-1">
-                <a href="../html/productinfo.html"><img class="image-1" src="../img-index/sach1.png" alt=""></a>
-                <div class="text">
-                    <h1 class="text-1">Nhà xuất bản lẻ</h1>
-                    <p class="text-2"><a href="../html/productinfo.html">Giáng Sinh Của Mog</a></p>
-                </div>
-                <div class="price">
-                    <p class="price-index">125,000đ</p>
-                    <p class="price-index-1">115,000đ</p>
-                </div>
-                <div class="star">
-                    <p><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i></p>
-                </div>
-                <button class="buy"><a href="../html/formlogin.html">BUY NOW</a></button>
-                <div class="price-down-index">
-                    <h2 class="price-down-index-1">-10%</h2>
-                </div>
-            </div>
-            <div class="product-1">
-                <a href="../html/productinfo.html"><img class="image-1" src="../img-index/sach2.png" alt=""></a>
-                <div class="text">
-                    <h1 class="text-1">Nhà xuất bản lẻ</h1>
-                    <p class="text-2"><a href="../html/productinfo.html">Không Gia Đình</a></p>
-                </div>
-                <div class="price">
-                    <p class="price-index">130,000đ</p>
-                    <p class="price-index-1">120,000đ</p>
-                </div>
-                <div class="star">
-                    <p><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i></p>
-                </div>
-                <button class="buy"><a href="../html/formlogin.html">BUY NOW</a></button>
-                <div class="price-down-index">
-                    <h2 class="price-down-index-1">-10%</h2>
-                </div>
-            </div>
-            <div class="product-1">
-                <a href="../html/productinfo.html"><img class="image-1" src="../img-index/sach3.png" alt=""></a>
-                <div class="text">
-                    <h1 class="text-1">Nhà xuất bản lẻ</h1>
-                    <p class="text-2"><a href="../html/productinfo.html">Chúc Giáng Sinh An Lành</a></p>
-                </div>
-                <div class="price">
-                    <p class="price-index">175,000đ</p>
-                    <p class="price-index-1">165,000đ</p>
-                </div>
-                <div class="star">
-                    <p><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i></p>
-                </div>
-                <button class="buy"><a href="../html/formlogin.html">BUY NOW</a></button>
-                <div class="price-down-index">
-                    <h2 class="price-down-index-1">-10%</h2>
-                </div>
-            </div>
-            <div class="product-1">
-                <a href="../html/productinfo.html"><img class="image-1" src="../img-index/sach4.jpg" alt=""></a>
-                <div class="text">
-                    <h1 class="text-1">Nhà xuất bản lẻ</h1>
-                    <p class="text-2"><a href="../html/productinfo.html">Chiếc Hộp Giáng Sinh</a></p>
-                </div>
-                <div class="price">
-                    <p class="price-index">110,000đ</p>
-                    <p class="price-index-1">100,000đ</p>
-                </div>
-                <div class="star">
-                    <p><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i></p>
-                </div>
-                <button class="buy"><a href="../html/formlogin.html">BUY NOW</a></button>
-                <div class="price-down-index">
-                    <h2 class="price-down-index-1">-10%</h2>
-                </div>
-            </div>
-            <div class="product-1">
-                <a href="../html/productinfo.html"><img class="image-1" src="../img-index/sach5.jpg" alt=""></a>
-                <div class="text">
-                    <h1 class="text-1">Nhà xuất bản lẻ</h1>
-                    <p class="text-2"><a href="../html/productinfo.html">Noel Miền Nhiệt Đới</a></p>
-                </div>
-                <div class="price">
-                    <p class="price-index">175,000đ</p>
-                    <p class="price-index-1">165,000đ</p>
-                </div>
-                <div class="star">
-                    <p><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i></p>
-                </div>
-                <button class="buy"><a href="../html/formlogin.html">BUY NOW</a></button>
-                <div class="price-down-index">
-                    <h2 class="price-down-index-1">-10%</h2>
-                </div>
-            </div>
-            <div class="product-1">
-                <a href="../html/productinfo.html"><img class="image-1" src="../img-index/sach6.jpg" alt=""></a>
-                <div class="text">
-                    <h1 class="text-1">Nhà xuất bản lẻ</h1>
-                    <p class="text-2"><a href="../html/productinfo.html">Nếu Mưa Rơi Vào Đêm Giáng Sinh</a></p>
-                </div>
-                <div class="price">
-                    <p class="price-index">190,000đ</p>
-                    <p class="price-index-1">180,000đ</p>
-                </div>
-                <div class="star">
-                    <p><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i></p>
-                </div>
-                <button class="buy"><a href="../html/formlogin.html">BUY NOW</a></button>
-                <div class="price-down-index">
-                    <h2 class="price-down-index-1">-10%</h2>
-                </div>
-            </div>
-            <div class="product-1">
-                <a href="../html/productinfo.html"><img class="image-index-1" src="../img-index/sach7.jpg" alt=""></a>
-                <div class="text">
-                    <h1 class="text-1">Nhà xuất bản lẻ</h1>
-                    <p class="text-2"><a href="../html/productinfo.html">Cuộc Đời Và Những Chuyến Phiêu Lưu Của Ông Gìa Noel</a></p>
-                </div>
-                <div class="price">
-                    <p class="price-index">210,000đ</p>
-                    <p class="price-index-1">200,000đ</p>
-                </div>
-                <div class="star">
-                    <p><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i></p>
-                </div>
-                <button class="buy"><a href="../html/formlogin.html">BUY NOW</a></button>
-                <div class="price-down-index">
-                    <h2 class="price-down-index-1">-10%</h2>
-                </div>
-            </div>
-            <div class="product-1">
-                <a href="../html/productinfo.html"><img class="image-1" src="../img-index/sach8.png" alt=""></a>
-                <div class="text">
-                    <h1 class="text-1">Nhà xuất bản lẻ</h1>
-                    <p class="text-2"><a href="../html/productinfo.html">Cô Bé Bán Diêm</a></p>
-                </div>
-                <div class="price">
-                    <p class="price-index">180,000đ</p>
-                    <p class="price-index-1">170,000đ</p>
-                </div>
-                <div class="star">
-                    <p><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i></p>
-                </div>
-                <button class="buy"><a href="../html/formlogin.html">BUY NOW</a></button>
-                <div class="price-down-index">
-                    <h2 class="price-down-index-1">-10%</h2>
-                </div>
-            </div>
             <div class="product-1">
                 <a href="../html/productinfo.html"><img class="image-1" src="../img-index/sach9.jpg" alt=""></a>
                 <div class="text">
@@ -564,9 +384,7 @@
     </div>
     <!--PHẦN CUỐI-->
     <div class="end"></div>
-    <footer>
-        <?php include APP_DIR . '/Views/layout/footer.php'; ?>
-    </footer>
+    <?php include APP_DIR . '/Views/layout/footer.php'; ?>
 </body>
 
 </html>

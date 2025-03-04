@@ -14,7 +14,7 @@
 $router->addRoute('/', ['controller' => 'App\Controllers\HomeController', 'action' => 'index'], 'GET', 'home');
 
 // Danh sách sách
-$router->addRoute('/books', ['controller' => 'BookController', 'action' => 'index'], 'GET', 'books.index');//chưa
+$router->addRoute('/books', ['controller' => 'App\Controllers\BookController', 'action' => 'index'], 'GET', 'books.index');//chưa
 
 // Chi tiết sách
 $router->addRoute('/books/{id}', ['controller' => 'BookController', 'action' => 'show'], 'GET', 'books.show');//chưa

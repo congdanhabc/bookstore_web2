@@ -3,6 +3,7 @@
 namespace App\Core;
 
 use App\Controllers\HomeController;
+use App\Controllers\BookController;
 
 class App {
     private $config;
