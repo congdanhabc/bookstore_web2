@@ -14,7 +14,7 @@ class BookController extends Controller {
     }
 
     public function index() {
-        // Lấy sách mới nhất (ví dụ: 10 cuốn)
+        // Lấy sách mới nhất
         $books = Book::getAllBooks($this->db);
 
         // Truyền dữ liệu cho view
@@ -25,4 +25,13 @@ class BookController extends Controller {
         // 4. Gọi view để hiển thị trang chủ
         return $this->view('/book/books', $data);
     }
+
+    public function show($id){
+        $book = Book::getBooksByID($id, $this->db);
+        $data = [
+            'book' => $book,
+        ];
+        return $this->view('/book/productinfo', $data);
+    }
+
 }

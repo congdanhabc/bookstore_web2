@@ -14,10 +14,10 @@
 $router->addRoute('/', ['controller' => 'App\Controllers\HomeController', 'action' => 'index'], 'GET', 'home');
 
 // Danh sách sách
-$router->addRoute('/books', ['controller' => 'App\Controllers\BookController', 'action' => 'index'], 'GET', 'books.index');//chưa
+$router->addRoute('/books', ['controller' => 'App\Controllers\BookController', 'action' => 'index'], 'GET', 'books.index');
 
 // Chi tiết sách
-$router->addRoute('/books/{id}', ['controller' => 'BookController', 'action' => 'show'], 'GET', 'books.show');//chưa
+$router->addRoute('/books/{param}', ['controller' => 'App\Controllers\BookController', 'action' => 'show'], 'GET', 'books.show');//chưa
 
 // Tìm kiếm sách
 $router->addRoute('/search', ['controller' => 'BookController', 'action' => 'search'], 'GET', 'books.search');//chưa
@@ -26,7 +26,7 @@ $router->addRoute('/search', ['controller' => 'BookController', 'action' => 'sea
 $router->addRoute('/categories', ['controller' => 'CategoryController', 'action' => 'index'], 'GET', 'categories.index');//chưa
 
 // Hiển thị sách theo danh mục (sử dụng slug)
-$router->addRoute('/categories/{slug}', ['controller' => 'CategoryController', 'action' => 'show'], 'GET', 'categories.show');//chưa
+$router->addRoute('/categories/{param}', ['controller' => 'CategoryController', 'action' => 'show'], 'GET', 'categories.show');//chưa
 
 // Đăng ký
 $router->addRoute('/register', ['controller' => 'UserController', 'action' => 'register'], 'GET', 'register.form'); //chưa // Hiển thị form đăng ký
@@ -44,9 +44,9 @@ $router->addRoute('/profile', ['controller' => 'UserController', 'action' => 'pr
 
 // Giỏ hàng
 $router->addRoute('/cart', ['controller' => 'CartController', 'action' => 'index'], 'GET', 'cart.index');//chưa
-$router->addRoute('/cart/add/{bookId}', ['controller' => 'CartController', 'action' => 'add'], 'POST', 'cart.add');//chưa
-$router->addRoute('/cart/update/{bookId}', ['controller' => 'CartController', 'action' => 'update'], 'POST', 'cart.update');//chưa
-$router->addRoute('/cart/remove/{bookId}', ['controller' => 'CartController', 'action' => 'remove'], 'POST', 'cart.remove');//chưa
+$router->addRoute('/cart/add/{param}', ['controller' => 'CartController', 'action' => 'add'], 'POST', 'cart.add');//chưa
+$router->addRoute('/cart/update/{param}', ['controller' => 'CartController', 'action' => 'update'], 'POST', 'cart.update');//chưa
+$router->addRoute('/cart/remove/{param}', ['controller' => 'CartController', 'action' => 'remove'], 'POST', 'cart.remove');//chưa
 $router->addRoute('/cart/clear', ['controller' => 'CartController', 'action' => 'clear'], 'POST', 'cart.clear');//chưa
 
 // Thanh toán
@@ -54,7 +54,7 @@ $router->addRoute('/checkout', ['controller' => 'OrderController', 'action' => '
 $router->addRoute('/checkout', ['controller' => 'OrderController', 'action' => 'processCheckout'], 'POST', 'checkout.submit'); //chưa // Xử lý thanh toán
 
 // Đặt hàng thành công
-$router->addRoute('/order/success/{orderId}', ['controller' => 'OrderController', 'action' => 'success'], 'GET', 'order.success');//chưa
+$router->addRoute('/order/success/{param}', ['controller' => 'OrderController', 'action' => 'success'], 'GET', 'order.success');//chưa
 
 // Lịch sử đơn hàng
 $router->addRoute('/order/history', ['controller' => 'OrderController', 'action' => 'history'], 'GET', 'order.history');//chưa
@@ -64,6 +64,6 @@ $router->addRoute('/admin', ['controller' => 'Admin\\DashboardController', 'acti
 $router->addRoute('/admin/books', ['controller' => 'Admin\\BookController', 'action' => 'index'], 'GET', 'admin.books.index');//chưa
 $router->addRoute('/admin/books/create', ['controller' => 'Admin\\BookController', 'action' => 'create'], 'GET', 'admin.books.create');//chưa
 $router->addRoute('/admin/books/store', ['controller' => 'Admin\\BookController', 'action' => 'store'], 'POST', 'admin.books.store');//chưa
-$router->addRoute('/admin/books/{id}/edit', ['controller' => 'Admin\\BookController', 'action' => 'edit'], 'GET', 'admin.books.edit');//chưa
-$router->addRoute('/admin/books/{id}/update', ['controller' => 'Admin\\BookController', 'action' => 'update'], 'POST', 'admin.books.update');//chưa
-$router->addRoute('/admin/books/{id}/delete', ['controller' => 'Admin\\BookController', 'action' => 'delete'], 'POST', 'admin.books.delete');//chưa
+$router->addRoute('/admin/books/{param}/edit', ['controller' => 'Admin\\BookController', 'action' => 'edit'], 'GET', 'admin.books.edit');//chưa
+$router->addRoute('/admin/books/{param}/update', ['controller' => 'Admin\\BookController', 'action' => 'update'], 'POST', 'admin.books.update');//chưa
+$router->addRoute('/admin/books/{param}/delete', ['controller' => 'Admin\\BookController', 'action' => 'delete'], 'POST', 'admin.books.delete');//chưa

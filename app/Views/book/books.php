@@ -4,6 +4,7 @@
 <head>
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/books.css">
+    <script type="text/javascript" src="/js/books.js"></script>
 </head>
 
 <body>
@@ -129,11 +130,10 @@
                     <?php if (!empty($books)): ?>
                     <div class="home-product">
                         <div class="grid__row">
-
                             <?php foreach ($books as $book): ?>
                             <div class="grid__column-2-2">
                                 <div class="home-product-item">
-                                    <a href="#"><img class="image-2" src="\images\books\<?php echo htmlentities($book->image); ?>" alt=""></a>
+                                    <a href="/books/<?php echo htmlentities($book->id); ?>"><img class="image-2" src="\images\books\<?php echo htmlentities($book->image); ?>" alt=""></a>
                                     <div class="text-product">
                                         <h1 class="text-product-1"><?php echo htmlentities($book->name); ?></h1>
                                         <p class="text-product-2"><a href="#"><?php echo htmlentities($book->author); ?></a></p>
@@ -170,82 +170,4 @@
     </div>
 
     <?php include APP_DIR . '/Views/layout/footer.php'; ?>
-
-
-    <script>
-        function myFunction1() {
-            document.getElementById("Dropdown1").classList.toggle("show1");
-        }
-
-        // Close the dropdown if the user clicks outside of it
-        window.onclick = function(event) {
-            if (!event.target.matches('.dropbtn1')) {
-                var dropdowns = document.getElementsByClassName("filter_product");
-                var i;
-                for (i = 0; i < dropdowns.length; i++) {
-                    var openDropdown = dropdowns[i];
-                    if (openDropdown.classList.contains('show1')) {
-                        openDropdown.classList.remove('show1');
-                    }
-                }
-            }
-        }
-    </script>
-    <script>
-        function myFunction2() {
-            document.getElementById("Dropdown2").classList.toggle("show2");
-        }
-
-        // Close the dropdown if the user clicks outside of it
-        window.onclick = function(event) {
-            if (!event.target.matches('.dropbtn2')) {
-                var dropdowns = document.getElementsByClassName("filter_product");
-                var i;
-                for (i = 0; i < dropdowns.length; i++) {
-                    var openDropdown = dropdowns[i];
-                    if (openDropdown.classList.contains('show2')) {
-                        openDropdown.classList.remove('show2');
-                    }
-                }
-            }
-        }
-    </script>
-    <script>
-        function myFunction3() {
-            document.getElementById("Dropdown3").classList.toggle("show3");
-        }
-
-        // Close the dropdown if the user clicks outside of it
-        window.onclick = function(event) {
-            if (!event.target.matches('.dropbtn3')) {
-                var dropdowns = document.getElementsByClassName("filter_product");
-                var i;
-                for (i = 0; i < dropdowns.length; i++) {
-                    var openDropdown = dropdowns[i];
-                    if (openDropdown.classList.contains('show3')) {
-                        openDropdown.classList.remove('show3');
-                    }
-                }
-            }
-        }
-    </script>
-    <script>
-        function myFunction4() {
-            document.getElementById("Dropdown4").classList.toggle("show4");
-        }
-
-        // Close the dropdown if the user clicks outside of it
-        window.onclick = function(event) {
-            if (!event.target.matches('.dropbtn4')) {
-                var dropdowns = document.getElementsByClassName("filter_product");
-                var i;
-                for (i = 0; i < dropdowns.length; i++) {
-                    var openDropdown = dropdowns[i];
-                    if (openDropdown.classList.contains('show4')) {
-                        openDropdown.classList.remove('show4');
-                    }
-                }
-            }
-        }
-    </script>
 </body>

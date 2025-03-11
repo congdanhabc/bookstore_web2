@@ -56,11 +56,12 @@ class App {
         // 5. Gọi controller và action
         $controllerName = $route['controller'];
         $actionName = $route['action'];
+        $actionParams = isset($route['param']) ? $route['param'] : null;
 
         // 6. Tạo instance của controller và gọi action
         if (class_exists($controllerName)) {
             $controller = new $controllerName($this->database); // Truyền database vào controller
-            $controller->$actionName();
+            $actionParams ? $controller->$actionName($actionParams) : $controller->$actionName();
         } else {
             echo "Không tìm thấy class: " . $controllerName;
         }
