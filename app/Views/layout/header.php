@@ -12,6 +12,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Racing+Sans+One&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Paytone+One&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,700;0,900;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/input.css">
+    <link rel="stylesheet" href="/css/output.css">
     <title>Shop Book</title>
 </head>
 

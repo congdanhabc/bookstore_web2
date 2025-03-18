@@ -55,6 +55,10 @@ CREATE TABLE IF NOT EXISTS `books` (
   `stock` int(11) NOT NULL DEFAULT 100,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `publish_year` year(4) DEFAULT NULL,
+  `size` varchar(50) DEFAULT NULL,
+  `page` int(11) DEFAULT NULL,
+  `cover_type` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_products_category_id` (`category_id`),
   KEY `fk_products_publisher_id` (`publisher_id`),
@@ -66,17 +70,17 @@ CREATE TABLE IF NOT EXISTS `books` (
 
 -- Dumping data for table bookstore.books: ~10 rows (approximately)
 DELETE FROM `books`;
-INSERT INTO `books` (`id`, `name`, `slug`, `price`, `image`, `description`, `publisher_id`, `sale_price`, `category_id`, `author_id`, `stock`, `created_at`, `updated_at`) VALUES
-	(1, 'Mắt Biếc', 'mat-biec', 95000.000, 'matbiec.jpg', 'Một câu chuyện tình buồn man mác của Nguyễn Nhật Ánh.', 1, 85500.000, 1, 1, 50, '2025-02-25 10:58:28', '2025-03-04 02:51:28'),
-	(2, 'Dế Mèn Phiêu Lưu Ký', 'de-men-phieu-luu-ky', 80000.000, 'demen.jpg', 'Cuộc phiêu lưu đầy thú vị của chú dế Mèn.', 2, 65000.000, 1, 2, 75, '2025-02-25 10:58:28', '2025-03-04 02:53:07'),
-	(3, 'Số Đỏ', 'so-do', 120000.000, 'sodo.jpg', 'Một tác phẩm trào phúng nổi tiếng của Vũ Trọng Phụng.', 3, 90000.000, 1, 3, 30, '2025-02-25 10:58:28', '2025-03-04 02:53:09'),
-	(4, 'Chí Phèo', 'chi-pheo', 75000.000, 'chipheo.jpg', 'Bi kịch của người nông dân bị tha hóa trong xã hội cũ.', 4, 60000.000, 3, 4, 40, '2025-02-25 10:58:28', '2025-03-04 02:53:11'),
-	(5, 'Nhật Ký Trong Tù', 'nhat-ky-trong-tu', 110000.000, 'nhatkytrongtu.jpg', 'Tuyển tập thơ đầy cảm xúc của Hồ Chí Minh.', 3, 110000.000, 5, 8, 60, '2025-02-25 10:58:28', '2025-03-04 02:53:56'),
-	(6, 'Lão Hạc', 'lao-hac', 65000.000, 'laohac.jpg', 'Một truyện ngắn cảm động về số phận người nông dân nghèo.', 4, 58500.000, 3, 7, 55, '2025-02-25 10:58:28', '2025-03-04 02:51:45'),
-	(7, 'Tam Quốc Diễn Nghĩa', 'tam-quoc-dien-nghia', 250000.000, 'tamquoc.jpg', 'Bộ tiểu thuyết lịch sử kinh điển của Trung Quốc.', 2, 250000.000, 2, 5, 25, '2025-02-25 10:58:28', '2025-03-04 02:53:43'),
-	(8, 'Đắc Nhân Tâm', 'dac-nhan-tam', 150000.000, 'dacnhantam.jpg', 'Sách về kỹ năng giao tiếp và ứng xử.', 1, 135000.000, 6, 4, 80, '2025-02-25 10:58:28', '2025-03-04 02:51:49'),
-	(9, 'Cha Giàu Cha Nghèo', 'cha-giau-cha-ngheo', 180000.000, 'chagiauchangheo.jpg', 'Sách về tư duy tài chính và đầu tư.', 5, 180000.000, 7, 3, 70, '2025-02-25 10:58:28', '2025-03-04 02:53:47'),
-	(10, 'Sử Ký Tư Mã Thiên', 'su-ky-tu-ma-thien', 300000.000, 'suky.jpg', 'Bộ sử đồ sộ của Trung Quốc.', 3, 200000.000, 8, 5, 20, '2025-02-25 10:58:28', '2025-03-04 02:53:15');
+INSERT INTO `books` (`id`, `name`, `slug`, `price`, `image`, `description`, `publisher_id`, `sale_price`, `category_id`, `author_id`, `stock`, `created_at`, `updated_at`, `publish_year`, `size`, `page`, `cover_type`) VALUES
+	(1, 'Mắt Biếc', 'mat-biec', 95000.000, 'matbiec.jpg', 'Một câu chuyện tình buồn man mác của Nguyễn Nhật Ánh.', 1, 85500.000, 1, 1, 50, '2025-02-25 10:58:28', '2025-03-04 02:51:28', NULL, NULL, NULL, NULL),
+	(2, 'Dế Mèn Phiêu Lưu Ký', 'de-men-phieu-luu-ky', 80000.000, 'demen.jpg', 'Cuộc phiêu lưu đầy thú vị của chú dế Mèn.', 2, 65000.000, 1, 2, 75, '2025-02-25 10:58:28', '2025-03-04 02:53:07', NULL, NULL, NULL, NULL),
+	(3, 'Số Đỏ', 'so-do', 120000.000, 'sodo.jpg', 'Một tác phẩm trào phúng nổi tiếng của Vũ Trọng Phụng.', 3, 90000.000, 1, 3, 30, '2025-02-25 10:58:28', '2025-03-04 02:53:09', NULL, NULL, NULL, NULL),
+	(4, 'Chí Phèo', 'chi-pheo', 75000.000, 'chipheo.jpg', 'Chí Phèo - tập truyện ngắn tái hiện bức tranh chân thực nông thôn Việt Nam trước 1945, nghèo đói, xơ xác trên con đường phá sản, bần cùng, hết sức thê thảm, người nông dân bị đẩy vào con đường tha hóa, lưu manh hóa. Nam Cao không hề bôi nhọ người nông dân, trái lại nhà văn đi sâu vào nội tâm nhân vật để khẳng định nhân phẩm và bản chất lương thiện ngay cả khi bị vùi dập, cướp mất cà nhân hình, nhân tính của người nông dân, đồng thời kết án đanh thép cái xã hội tàn bạo đó trước 1945.\r\n\r\nNhững sáng tác của Nam Cao ngoài giá trị hiện thực sâu sắc, các tác phẩm đi sâu vào nội tâm nhân vật, để lại những cảm xúc sâu lắng trong lòng người đọc.', 3, 60000.000, 3, 4, 40, '2025-02-25 10:58:28', '2025-03-18 02:57:45', '2017', '13 x 20.5', 332, 'Bìa mềm'),
+	(5, 'Nhật Ký Trong Tù', 'nhat-ky-trong-tu', 110000.000, 'nhatkytrongtu.jpg', 'Tuyển tập thơ đầy cảm xúc của Hồ Chí Minh.', 3, 110000.000, 5, 8, 60, '2025-02-25 10:58:28', '2025-03-04 02:53:56', NULL, NULL, NULL, NULL),
+	(6, 'Lão Hạc', 'lao-hac', 65000.000, 'laohac.webp', 'Lão Hạc là một người nông dân chất phác, hiền lành. Vợ lão mất sớm, lão còn có một người con trai nhưng vì quá nghèo nên không thể lấy vợ cho con. Sau này, người con gái mà con trai lão yêu thương hết mực ấy lại lấy con trai một ông phó lí, nhà có của. Hắn vì phẫn chí đã rời bỏ quê hương để đến đồn điền cao su làm ăn kiếm tiền theo công-ta (hợp đồng). Lão Hạc luôn trăn trở, suy nghĩ về tương lai của đứa con. Lão sống bằng nghề làm vườn, mảnh vườn mà vợ lão đã mất bao công sức để mua về và để lại cho con trai lão.\r\n\r\nLão có một con chó tên là Vàng – con chó do con trai lão trước khi đi đồn điền cao su đã để lại. Lão coi nó như một người thân trong gia đình. Lão gọi nó là "cậu Vàng" và rất mực yêu thương nó. Tuy nhiên, vì gia cảnh nghèo khó lại còn trải qua một trận ốm nặng, lão đã kiệt quệ, không còn sức để nuôi nổi bản thân, huống chi là còn có thêm một con chó. Vì muốn giữ mảnh vườn cho con nên ông lão đành cắn răng bán "cậu Vàng" đi. Lão đã rất dằn vặt bản thân khi mang một "tội lỗi" là đã nỡ tâm "lừa một con chó". Lão đã khóc rất nhiều với ông giáo (người hàng xóm thân thiết của lão, và cũng là một người tri thức nghèo). Nhưng cũng kể từ đó, lão sống khép kín, lủi thủi một mình.', 3, 58500.000, 3, 7, 55, '2025-02-25 10:58:28', '2025-03-18 02:57:15', '2022', '13.5 x 20.5cm', 200, 'Bìa mềm'),
+	(7, 'Tam Quốc Diễn Nghĩa', 'tam-quoc-dien-nghia', 250000.000, 'tamquoc.jpg', 'Bộ tiểu thuyết lịch sử kinh điển của Trung Quốc.', 2, 250000.000, 2, 5, 25, '2025-02-25 10:58:28', '2025-03-04 02:53:43', NULL, NULL, NULL, NULL),
+	(8, 'Đắc Nhân Tâm', 'dac-nhan-tam', 150000.000, 'dacnhantam.jpg', 'Sách về kỹ năng giao tiếp và ứng xử.', 1, 135000.000, 6, 4, 80, '2025-02-25 10:58:28', '2025-03-04 02:51:49', NULL, NULL, NULL, NULL),
+	(9, 'Cha Giàu Cha Nghèo', 'cha-giau-cha-ngheo', 180000.000, 'chagiauchangheo.jpg', 'Sách về tư duy tài chính và đầu tư.', 1, 180000.000, 7, 3, 70, '2025-02-25 10:58:28', '2025-03-18 02:51:55', '2018', '13x19cm', 372, 'Bìa mềm'),
+	(10, 'Sử Ký Tư Mã Thiên', 'su-ky-tu-ma-thien', 300000.000, 'suky.jpg', 'Bộ sử đồ sộ của Trung Quốc.', 3, 200000.000, 8, 5, 20, '2025-02-25 10:58:28', '2025-03-04 02:53:15', NULL, NULL, NULL, NULL);
 
 -- Dumping structure for table bookstore.carts
 CREATE TABLE IF NOT EXISTS `carts` (

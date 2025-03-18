@@ -17,6 +17,10 @@ class Book {
     public $stock;
     public $created_at;
     public $updated_at;
+    public $publish_year;
+    public $size;
+    public $page;
+    public $cover_type;
 
     // Hàm hỗ trợ để tạo đối tượng Book từ mảng
     private static function createBookObject($bookData, $db) {
@@ -33,6 +37,10 @@ class Book {
         $book->stock = $bookData['stock'];
         $book->created_at = $bookData['created_at'];
         $book->updated_at = $bookData['updated_at'];
+        $book->publish_year = $bookData['publish_year'];
+        $book->size = $bookData['size'];
+        $book->page = $bookData['page'];
+        $book->cover_type = $bookData['cover_type'];
         return $book;
     }
 
