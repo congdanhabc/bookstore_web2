@@ -52,9 +52,15 @@ class UserController extends Controller {
 
             // 5. Lưu thông tin người dùng vào session
             $_SESSION['user_id'] = $user->id; // Lưu user ID vào session
+            $_SESSION['role'] = $user->role; // Lưu role
 
-            // 6. Chuyển hướng đến trang chủ
-            header('Location: /');
+            // 6. Chuyển hướng
+            if($_SESSION['role'] == 0){
+                header('Location: /admin');
+            }
+            else{
+                header('Location: /');
+            }
             exit(); // Đảm bảo script dừng thực thi sau khi redirect
         } else {
             // Đăng nhập thất bại

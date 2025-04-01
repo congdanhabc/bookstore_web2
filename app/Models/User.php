@@ -11,7 +11,7 @@ class User {
     public $phone;
     public $created_at;
     public $updated_at;
-
+    public $role;
 
     public static function getUserByEmail(string $email, $db) {
         $sql = "SELECT * FROM users WHERE email = ?";
@@ -34,6 +34,7 @@ class User {
         $user->phone = $userData['phone'];
         $user->created_at = $userData['created_at'];
         $user->updated_at = $userData['updated_at'];
+        $user->role = $userData['role'];
         return $user;
     }
 
@@ -46,13 +47,14 @@ class User {
         $hashedPassword = password_hash($data['password'], PASSWORD_DEFAULT);
 
         // 4. Thêm người dùng mới vào database
-        $sql = "INSERT INTO users (name, email, password, address, phone) VALUES (?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO users (name, email, password, address, phone, role) VALUES (?, ?, ?, ?, ?, ?)";
         $params = [
             $data['name'],
             $data['email'],
             $hashedPassword,
             $data['address'].", ".$data['ward'].", ".$data['district'].", ".$data['city'],
             $data['phone'],
+            1
         ];
 
         $result = $db->execute($sql, $params);
