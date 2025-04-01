@@ -11,13 +11,13 @@
 // Lưu ý: này mới tạo thử thôi, trong quá trình làm có thể sửa lại cho phù hợp
 
 // Trang chủ
-$router->addRoute('/', ['controller' => 'App\Controllers\HomeController', 'action' => 'index'], 'GET', 'home');
+$router->addRoute('/', ['controller' => 'HomeController', 'action' => 'index'], 'GET', 'home');
 
 // Danh sách sách
-$router->addRoute('/books', ['controller' => 'App\Controllers\BookController', 'action' => 'index'], 'GET', 'books.index');
+$router->addRoute('/books', ['controller' => 'BookController', 'action' => 'index'], 'GET', 'books.index');
 
 // Chi tiết sách
-$router->addRoute('/books/{param}', ['controller' => 'App\Controllers\BookController', 'action' => 'show'], 'GET', 'books.show');//đang sửa
+$router->addRoute('/books/{param}', ['controller' => 'BookController', 'action' => 'show'], 'GET', 'books.show');
 
 // Tìm kiếm sách
 $router->addRoute('/search', ['controller' => 'BookController', 'action' => 'search'], 'GET', 'books.search');//chưa
@@ -29,12 +29,11 @@ $router->addRoute('/categories', ['controller' => 'CategoryController', 'action'
 $router->addRoute('/categories/{param}', ['controller' => 'CategoryController', 'action' => 'show'], 'GET', 'categories.show');//chưa
 
 // Đăng ký
-$router->addRoute('/register', ['controller' => 'UserController', 'action' => 'register'], 'GET', 'register.form'); //chưa // Hiển thị form đăng ký
-$router->addRoute('/register', ['controller' => 'UserController', 'action' => 'store'], 'POST', 'register.submit'); //chưa // Xử lý đăng ký
+$router->addRoute('/register', ['controller' => 'UserController', 'action' => 'register'], 'POST', 'register.submit'); //chưa // Xử lý đăng ký
 
 // Đăng nhập
 $router->addRoute('/login', ['controller' => 'UserController', 'action' => 'login'], 'GET', 'login.form'); //chưa // Hiển thị form đăng nhập
-$router->addRoute('/login', ['controller' => 'UserController', 'action' => 'authenticate'], 'POST', 'login.submit'); //chưa // Xử lý đăng nhập
+$router->addRoute('/authenticate', ['controller' => 'UserController', 'action' => 'authenticate'], 'POST', 'login.submit'); //chưa // Xử lý đăng nhập
 
 // Đăng xuất
 $router->addRoute('/logout', ['controller' => 'UserController', 'action' => 'logout'], 'GET', 'logout');//chưa

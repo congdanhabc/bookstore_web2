@@ -4,7 +4,6 @@ namespace App\Controllers;
 
 use App\Core\Controller; 
 use App\Models\Book;
-use App\Models\Category;
 
 class HomeController extends Controller {
     private $db; // Thêm thuộc tính $db

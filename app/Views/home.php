@@ -383,7 +383,7 @@
         </div>
     </div>
     <!--PHẦN CUỐI-->
-    <div class="end"></div>
+    <div style='margin-bottom: 50px;'></div>
     <?php include APP_DIR . '/Views/layout/footer.php'; ?>
 </body>
 

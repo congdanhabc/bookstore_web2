@@ -7,7 +7,7 @@
 <body class="font-sans bg-gray-100">
     <?php include APP_DIR . '/Views/layout/header.php'; ?>
 
-    <div class="bg-gray-100">
+    <div class="bg-gray-100 mb-[50px]">
         <div class="mainprinfo bg-gray-100">
             <ul class="mainprinfo-list  ml-[157px] flex list-none py-2 px-2">
                 <li class="mainprinfo-item  mainprinfo-btn relative pr-1"><a href="#" class="text-blue-500 font-semibold text-sm hover:underline">Trang chủ</a></li>
@@ -74,8 +74,8 @@
                                             </div>
                                         </li>
                                         <li class="button-product-addcart">
-                                            <button class="button-product-1 bg-orange-500 hover:bg-orange-600 text-white border-none w-fit h-10 lg:h-10 mt-5 lg:mt-5 px-4 rounded">
-                                                <a href="../html/cart.html" class="text-white font-bold text-sm lg:text-base tracking-wide">THÊM VÀO GIỎ HÀNG</a>
+                                            <button type="submit" class="button-product-1 bg-orange-500 hover:bg-orange-600 text-white border-none w-fit h-10 lg:h-10 mt-5 lg:mt-5 px-4 rounded">
+                                                <div class="text-white font-bold text-sm lg:text-base tracking-wide">THÊM VÀO GIỎ HÀNG </div>
                                             </button>
                                         </li>
                                     </ul>

@@ -2,8 +2,6 @@
 
 namespace App\Models;
 
-use App\Models\Author;
-
 class Book {
     public $id;
     public $category_id;
