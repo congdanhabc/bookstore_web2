@@ -18,11 +18,28 @@ class User {
         $params = [$email];
         $stmt = $db->fetch($sql, $params);
         if ($stmt) {
+            return self::createUserObjectLogin($stmt);
+        }
+        return false;
+    }
+
+    public static function getUserByID(int $id, $db){
+        $sql = "SELECT * FROM users WHERE id = ?";
+        $params = [$id];
+        $stmt = $db->fetch($sql, $params);
+        if ($stmt) {
             return self::createUserObject($stmt);
         }
         return false;
     }
 
+    private static function createUserObjectLogin($userData) {
+        $user = new User();
+        $user->id = $userData['id'];
+        $user->password = $userData['password'];
+        $user->role = $userData['role'];
+        return $user;
+    }
 
     private static function createUserObject($userData) {
         $user = new User();

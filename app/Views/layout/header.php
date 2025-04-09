@@ -17,6 +17,18 @@
     <title>Shop Book</title>
 </head>
 
+<?php
+    $cartHref = '';
+    if (isset($_SESSION['user_id'])) 
+    {
+        $cartHref = '/cart';
+    }
+    else 
+    {
+        $cartHref = '/login';
+    }
+?>
+
 <!--NAVBAR-->
 <header>
         <marquee class="box">
@@ -73,14 +85,49 @@
             </div>
             <div class="icon">
                 <table>
-                    <thead>
+                    <!-- <thead>
                         <th><i class='bx bx-user'></i></th>
                         <th><i class='bx bx-cart'></i></th>
-                    </thead>
+                    </thead> -->
                     <tbody>
                         <tr>
-                            <td><a href="/login">Tài khoản</a></td>
-                            <td><a href="cart.html">Giỏ hàng</a></td>
+                            <td>
+                                
+                                <?php if (!isset($_SESSION['user_id'])) 
+                                    { 
+                                ?>
+                                    <div class="nav2">
+                                        <a href="/login">
+                                            <i class='bx bx-user'></i>
+                                            Đăng nhập
+                                        </a>
+                                    </div>
+                                <?php 
+                                    } 
+                                    else { 
+                                ?>
+                                    <div class="dropdown-1">
+                                        <button type="button" data-toggle="dropdown">
+                                            <div class="nav2">
+                                                <i class='bx bx-user'></i>
+                                                Tài khoản
+                                            </div>
+                                        </button>
+                                        <div class="dropdown-content">
+                                            <a href="/profile">Thông tin tài khoản</a>
+                                            <a href="/logout">Đăng xuất</a>
+                                        </div>
+                                    </div>
+                                <?php } ?>
+                            </td>
+                            <td>
+                                <div class="nav2">
+                                    <a href= <?php $cartHref ?> >
+                                        <i class='bx bx-cart'></i>
+                                        Giỏ hàng
+                                    </a>
+                                </div>
+                            </td>
                         </tr>
                     </tbody>
                 </table>

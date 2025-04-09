@@ -68,9 +68,19 @@ class UserController extends Controller {
         }
     }
     public function logout() {
+        // Xóa thông tin người dùng khỏi session
+        unset($_SESSION['user_id']);
+        unset($_SESSION['role']);
 
+        // Chuyển hướng
+        header('Location: /');
+        exit();
     }
     public function profile() {
-
+        $user = User::getUserByID($_SESSION['user_id'], $this->db);
+        $data = [
+            'user' => $user,
+        ];
+        return $this->view('/user/profile', $data);
     }
 }
