@@ -11,13 +11,9 @@
     text-decoration: none;
 }
 
-.message {
-    color: red;
-    margin-left: 10%;
-}
 
 .form {
-    height: 875px;
+    height: 825px;
     width: 100%;
     left: 0px;
     top: 0px;
@@ -31,7 +27,7 @@
 
 .form-box {
     width: 500px;
-    height: 725px;
+    height: 700px;
     position: relative;
     margin-inline:auto;
     background: white;
@@ -78,7 +74,7 @@
 }
 
 .social-icons {
-    margin: 10px auto;
+    margin: 30px auto;
     text-align: center;
 }
 
@@ -91,7 +87,7 @@
 }
 
 .input-group {
-    top: 225px;
+    top: 180px;
     position: absolute;
     width: 365px;
     transition: .5s;
