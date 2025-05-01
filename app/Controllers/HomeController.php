@@ -13,16 +13,6 @@ class HomeController extends Controller {
     }
 
     public function index() {
-        // Lấy sách mới nhất (ví dụ: 10 cuốn)
-        $Books = Book::getAllBooks($this->db);
-
-
-        // Truyền dữ liệu cho view
-        $data = [
-            'Books' => $Books,
-        ];
-
-        // 4. Gọi view để hiển thị trang chủ
-        return $this->view('home', $data);
+        return $this->view('home');
     }
 }

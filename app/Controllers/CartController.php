@@ -3,6 +3,9 @@
 namespace App\Controllers;
 
 use App\Core\Controller; 
+use App\Models\Cart;
+
+
 
 
 class CartController extends Controller {

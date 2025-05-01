@@ -16,17 +16,11 @@ $router->addRoute('/', ['controller' => 'HomeController', 'action' => 'index'], 
 // Danh sách sách
 $router->addRoute('/books', ['controller' => 'BookController', 'action' => 'index'], 'GET', 'books.index');
 
+// Lọc và sắp xếp sách
+$router->addRoute('/books/ajax?{param}', ['controller' => 'BookController', 'action' => 'ajaxLoadBooks'], 'GET', 'books.filter');
+
 // Chi tiết sách
 $router->addRoute('/books/{param}', ['controller' => 'BookController', 'action' => 'show'], 'GET', 'books.show');
-
-// Tìm kiếm sách
-$router->addRoute('/search', ['controller' => 'BookController', 'action' => 'search'], 'GET', 'books.search');//chưa
-
-// Danh sách danh mục
-$router->addRoute('/categories', ['controller' => 'CategoryController', 'action' => 'index'], 'GET', 'categories.index');//chưa
-
-// Hiển thị sách theo danh mục (sử dụng slug)
-$router->addRoute('/categories/{param}', ['controller' => 'CategoryController', 'action' => 'show'], 'GET', 'categories.show');//chưa
 
 // Đăng ký
 $router->addRoute('/register', ['controller' => 'UserController', 'action' => 'register'], 'POST', 'register.submit'); //chưa // Xử lý đăng ký

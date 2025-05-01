@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use function PHPSTORM_META\type;
+
 class Book {
     public $id;
     public $category_id;
@@ -53,7 +55,6 @@ class Book {
         return $book;
     }
 
-
     public static function getAllBooks($db) {
         $sql = "SELECT id, name, author_id, price, sale_price, image FROM books";
         $books = $db->fetchAll($sql);
@@ -65,6 +66,84 @@ class Book {
         }
 
         return $bookObjects;
+    }
+
+    public function getBooksWithFiltersAndPagination(array $filters, int $limit, int $offset ,$db): array
+    {
+        $sql = "SELECT id, name, author_id, price, sale_price, image FROM books";
+        $params = [];
+        $whereClauses = [];
+
+        // Áp dụng bộ lọc (Ví dụ)
+        if (!empty($filters['category_id'])) {
+            $whereClauses[] = "category_id = ".$filters['category_id'];
+        }
+        if (!empty($filters['price_min'])) {
+            $whereClauses[] = "sale_price >= ".$filters['price_min'];
+        }
+         if (!empty($filters['price_max'])) {
+            $whereClauses[] = "sale_price <= ".$filters['price_max'];
+        }
+        if (!empty($filters['search'])) {
+            $whereClauses[] = "name LIKE :search";
+            $params[':search'] = '%' . $filters['search'] . '%';
+        }
+
+        if (!empty($whereClauses)) {
+            $sql .= " WHERE " . implode(" AND ", $whereClauses);
+        }
+        
+        // Sắp xếp
+        $sql .= " ORDER BY ".$filters['sort'] . " ".($filters['ascending'] === true ? "ASC" : "DESC");
+
+        // Phân trang
+        $sql .= " LIMIT " . $limit . " OFFSET " . $offset;
+
+        // print($sql);
+
+        $books = $db->fetchAll($sql, $params);
+
+        // Chuyển đổi kết quả thành mảng các đối tượng Book
+        $bookObjects = [];
+        foreach ($books as $book) {
+            $bookObjects[] = self::createBookObjectForList($book, $db);
+        }
+
+        return $bookObjects;
+    }
+
+    public function countBooksWithFilters(array $filters ,$db): int
+    {
+        $sql = "SELECT COUNT(id) FROM books";
+        $params = [];
+        $whereClauses = [];
+
+         // Áp dụng bộ lọc (TƯƠNG TỰ như phương thức trên)
+         if (!empty($filters['category_id'])) {
+            $whereClauses[] = "category_id = :category_id";
+            $params[':category_id'] = $filters['category_id'];
+        }
+        if (!empty($filters['price_min'])) {
+            $whereClauses[] = "sale_price >= :price_min";
+            $params[':price_min'] = $filters['price_min'];
+        }
+         if (!empty($filters['price_max'])) {
+            $whereClauses[] = "sale_price <= :price_max";
+            $params[':price_max'] = $filters['price_max'];
+        }
+        if (!empty($filters['search'])) {
+            $whereClauses[] = "name LIKE :search";
+            $params[':search'] = '%' . $filters['search'] . '%';
+        }
+
+
+        if (!empty($whereClauses)) {
+            $sql .= " WHERE " . implode(" AND ", $whereClauses);
+        }
+
+        // Thực thi query (điều chỉnh theo class Database của bạn)
+        $count = $db->fetch($sql, $params);
+        return intval($count['COUNT(id)']);
     }
 
     public static function getBooksByID($id ,$db) {

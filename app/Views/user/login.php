@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/form.css">
-    <title>Form</title>
+    <title>Đăng nhập</title>
 </head>
 
 <body>
@@ -32,7 +32,7 @@
                     <p class="error-message"><?php echo htmlspecialchars($error_login); ?></p>
                 <?php endif; ?>
                 <?php if (isset($success_message)): // Kiểm tra biến $success_message ?>
-                    <p class="success-message"><?php echo htmlspecialchars($success_message); ?></p>
+                    <p class="success-message" style="color: red;"><?php echo htmlspecialchars($success_message); ?></p>
                 <?php endif; ?>
             </div>
             <form id="login" class="input-group" action="/authenticate" method="POST">

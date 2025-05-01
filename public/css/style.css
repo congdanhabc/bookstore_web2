@@ -6,6 +6,7 @@
 /*KHUNG MÀU CHỮ XANH*/
 
 .box {
+    margin-top: 90px;
     padding: 5px;
     background-color: #075985;
     color: #ffffff;
@@ -22,6 +23,12 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    border-bottom: black solid 1px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
 }
 
 
@@ -33,7 +40,7 @@
     color: #075985;
     font-family: 'Lobster', cursive;
     text-decoration: none;
-    padding-left: 160px;
+    padding-left: 30px;
 }
 
 
@@ -86,6 +93,7 @@
 .dropdown-content a {
     color: black;
     padding: 12px 16px;
+    font-family: 'Lobster', cursive;
     text-decoration: none;
     display: block;
     text-align: left;
@@ -119,12 +127,14 @@
     font-size: 18px;
     border: 1px solid;
     border-radius: 30px;
-    height: 45px;
-    margin-right: 10px;
+    height: 30px;
+    margin-inline: 10px;
+    align-items: center;
+    display: flex;
 }
 
 .search input {
-    margin-right: 20px;
+    margin-left: 5px;
     border: none;
     height: 42px;
     outline: none;
@@ -132,6 +142,7 @@
 
 .search i {
     padding: 5px;
+    cursor: pointer;
 }
 
 
@@ -144,15 +155,22 @@
 
 /*TÀI KHOẢN VÀ GIỎ HÀNG*/
 
-.icon td a {
-    padding-left: 20px;
+.icon td .nav2 {
+    padding-left: 10px;
     text-decoration: none;
     color: #06b6d4;
     font-family: 'Lobster', cursive;
     font-size: 20px;
 }
 
-.icon td a:hover {
+.icon .nav2 {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    flex-wrap: wrap;
+}
+
+.icon td .nav2:hover {
     color: #0284c7;
     justify-items: auto;
 }
@@ -160,10 +178,10 @@
 
 /*ICON USER VÀ CART*/
 
-.icon th i {
-    padding-left: 20px;
+.icon .nav2 i {
     font-size: 25px;
     color: #075985;
+    
 }
 
 

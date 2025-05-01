@@ -1,7 +1,6 @@
 * {
     margin: 0;
     padding: 0;
-    font-family: sans-serif;
 }
 
 .logo_form {
@@ -27,6 +26,7 @@
     background-position: center;
     background-size: cover;
     padding-top: 5%;
+    font-family: sans-serif;
 }
 
 .form-box {
