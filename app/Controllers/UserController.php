@@ -27,7 +27,7 @@ class UserController extends Controller {
         } else {
             // Đăng ký thất bại
             // Hiển thị lại form đăng ký với thông báo lỗi
-            return $this->view('user/register', ['error_register' => $registrationResult['error'], 'data' => $data]); // Truyền dữ liệu đã nhập để giữ lại form
+            return $this->view('user/login', ['error_register' => $registrationResult['error'], 'data' => $data]); // Truyền dữ liệu đã nhập để giữ lại form
         }
     }
     public function login() {

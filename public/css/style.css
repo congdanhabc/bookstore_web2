@@ -16,8 +16,8 @@
 
 .header {
     height: 90px;
-    max-width: 100%;
-    margin: 0 auto;
+    width: 100%;
+    margin: -7px auto;
     padding: 10px;
     background-color: #ffffff;
     display: flex;

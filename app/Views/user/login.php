@@ -16,7 +16,7 @@
             <div class="button-box">
                 <div id="btn"></div>
                 <button type="button" class="toggle-btn" onclick="login()">Đăng nhập</button>
-                <button type="button" class="toggle-btn" onclick="register()">Đăng ký</button>
+                <button type="button" id="btn_register" class="toggle-btn" onclick="register()">Đăng ký</button>
             </div>
             <div class="social-icons">
                 <!-- <img src="../img/fb.png" alt="">
@@ -24,13 +24,18 @@
                 <img src="../img/gp.png" alt=""> -->
                 <h1 class="logo_form">BookStore</h1>
             </div>
-            <form id="login" class="input-group" action="/authenticate" method="POST">
+            <div id="message" class="message">
+                <?php if (isset($error_register)): ?>
+                        <p class="error-message"><?php echo htmlspecialchars($error_register); ?></p>
+                <?php endif; ?>
                 <?php if (isset($error_login)): ?>
                     <p class="error-message"><?php echo htmlspecialchars($error_login); ?></p>
                 <?php endif; ?>
                 <?php if (isset($success_message)): // Kiểm tra biến $success_message ?>
                     <p class="success-message" style="color: red;"><?php echo htmlspecialchars($success_message); ?></p>
                 <?php endif; ?>
+            </div>
+            <form id="login" class="input-group" action="/authenticate" method="POST">
                 <input type="email" name="email" class="input-field" placeholder="Email" required>
                 <input type="password" name="password" class="input-field" placeholder="Mật khẩu" required>
                 <input type="checkbox" class="chech-box"><span class="password">Lưu mật khẩu</span>
@@ -38,9 +43,6 @@
                 <br><a href="#" class="login-admin">Quên mật khẩu ?</a></br>
             </form>
             <form id="register" class="input-group" action="/register" method="POST">
-                <?php if (isset($error_register)): ?>
-                    <p class="error-message"><?php echo htmlspecialchars($error_register); ?></p>
-                <?php endif; ?>
                 <input type="text" name="name" class="input-field" placeholder="Họ tên" required>
                 <select class="form-select form-select-sm mb-3" id="city" name="city" aria-label=".form-select-sm" style="width: 215px;">
                     <option value="" selected>Chọn tỉnh thành</option>           
