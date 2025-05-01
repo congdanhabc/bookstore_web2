@@ -29,7 +29,7 @@
                     <p class="error-message"><?php echo htmlspecialchars($error_login); ?></p>
                 <?php endif; ?>
                 <?php if (isset($success_message)): // Kiểm tra biến $success_message ?>
-                    <p class="success-message"><?php echo htmlspecialchars($success_message); ?></p>
+                    <p class="success-message" style="color: red;"><?php echo htmlspecialchars($success_message); ?></p>
                 <?php endif; ?>
                 <input type="email" name="email" class="input-field" placeholder="Email" required>
                 <input type="password" name="password" class="input-field" placeholder="Mật khẩu" required>

@@ -79,10 +79,10 @@
                     <li><a href="/books">Blog</a></li>
                 </ul>
             </div>
-            <div class="search">
+            <!-- <div class="search">
                 <i class='bx bx-search'></i>
                 <input type="text" placeholder="Tìm kiếm sản phẩm">
-            </div>
+            </div> -->
             <div class="icon">
                 <table>
                     <!-- <thead>
@@ -122,7 +122,7 @@
                             </td>
                             <td>
                                 <div class="nav2">
-                                    <a href= <?php $cartHref ?> >
+                                    <a href= "<?php $cartHref ?>" >
                                         <i class='bx bx-cart'></i>
                                         Giỏ hàng
                                     </a>

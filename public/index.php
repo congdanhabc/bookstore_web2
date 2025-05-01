@@ -20,7 +20,7 @@ define('PUBLIC_DIR', ROOT_DIR . '/public'); // Đường dẫn đến thư mục
 // Load autoloader
 require_once ROOT_DIR . '/vendor/autoload.php';
 
-$dotenv = Dotenv\Dotenv::createImmutable(ROOT_DIR);
+$dotenv = Dotenv\Dotenv::createMutable(paths: ROOT_DIR);
 $dotenv->load(); //Load các biến từ file .env
 
 // Load helper functions
