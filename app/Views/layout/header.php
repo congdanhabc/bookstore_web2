@@ -30,7 +30,7 @@
 ?>
 
 <!--NAVBAR-->
-<header style="position: fixed; z-index: 100; width: 100%;">
+<header>
         <marquee class="box">
             <div class="box-1">"Việc đọc rất quan trọng! Nếu bạn biết cách đọc, cả thế giới sẽ mở ra cho bạn." - Barack Obama</div>
         </marquee>
@@ -134,6 +134,3 @@
             </div>
         </div>
 </header>
-
-<div style="height: 150px;"></div>
-
