@@ -418,19 +418,22 @@ CREATE TABLE IF NOT EXISTS `users` (
   `phone` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `role` bit(1) NOT NULL,
+  `role` int NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   UNIQUE KEY `email` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table bookstore1.users: ~5 rows (approximately)
+-- Dumping data for table bookstore1.users: ~8 rows (approximately)
 DELETE FROM `users`;
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `address`, `phone`, `created_at`, `updated_at`, `role`) VALUES
-	(1, 'Nguyễn Văn An', 'an.nguyen@example.com', '$2y$10$abcdefghijklmnopqrstuvwxysdfasdfasdf', '123 Đường ABC, Quận 1, TP.HCM', '0901234567', '2025-02-25 10:58:28', '2025-02-25 10:58:28', b'0'),
-	(2, 'Trần Thị Bình', 'binh.tran@example.com', '$2y$10$abcdefghijklmnopqrstuvwxysdfasdfasdf', '456 Đường XYZ, Quận 3, TP.HCM', '0918765432', '2025-02-25 10:58:28', '2025-02-25 10:58:28', b'0'),
-	(3, 'Lê Văn Cường', 'cuong.le@example.com', '$2y$10$abcdefghijklmnopqrstuvwxysdfasdfasdf', '789 Đường QRS, Bình Thạnh, TP.HCM', '0987123456', '2025-02-25 10:58:28', '2025-02-25 10:58:28', b'0'),
-	(4, 'Root', 'root@root', '$2y$10$geVqoZAmHNJSGIiWuAlFtehLSyPPnfmNC3UBdBxEzWKo6.nyPdUP.', 'N/A, 00004, 001, 01', '0908347930', '2025-04-15 01:02:40', '2025-04-15 01:02:40', b'1'),
-	(5, 'Công Danh Nguyễn', 'ncongdanh91@gmail.com', '$2y$10$Zehmy3ItOZMcdaSGhNFhKeF1Qx6x1IKnoHUrSd7NarG0FUSB9QC2C', 'N/A, , , ', '0908347930', '2025-04-15 01:05:03', '2025-04-15 01:05:03', b'1');
+	(1, 'Nguyễn Văn An', 'an.nguyen@example.com', '$2y$10$abcdefghijklmnopqrstuvwxysdfasdfasdf', '123 Đường ABC, Quận 1, TP.HCM', '0901234567', '2025-02-25 10:58:28', '2025-02-25 10:58:28', 0),
+	(2, 'Trần Thị Bình', 'binh.tran@example.com', '$2y$10$abcdefghijklmnopqrstuvwxysdfasdfasdf', '456 Đường XYZ, Quận 3, TP.HCM', '0918765432', '2025-02-25 10:58:28', '2025-02-25 10:58:28', 0),
+	(3, 'Lê Văn Cường', 'cuong.le@example.com', '$2y$10$abcdefghijklmnopqrstuvwxysdfasdfasdf', '789 Đường QRS, Bình Thạnh, TP.HCM', '0987123456', '2025-02-25 10:58:28', '2025-02-25 10:58:28', 0),
+	(4, 'Root', 'root@root', '$2y$10$geVqoZAmHNJSGIiWuAlFtehLSyPPnfmNC3UBdBxEzWKo6.nyPdUP.', 'N/A, 00004, 001, 01', '0908347930', '2025-04-15 01:02:40', '2025-04-15 01:02:40', 1),
+	(5, 'Công Danh Nguyễn', 'ncongdanh91@gmail.com', '$2y$10$Zehmy3ItOZMcdaSGhNFhKeF1Qx6x1IKnoHUrSd7NarG0FUSB9QC2C', 'N/A, , , ', '0908347930', '2025-04-15 01:05:03', '2025-04-15 01:05:03', 1),
+	(6, 'Du Nghia', 'nghiangu123@gmail.com', '$2y$10$5wgynmQ0XWX7YUgm9i/Ml.edzliX3sEk625G0TwG/IuHeDEcHpNAS', ' fasdasd, 08860, 253, 26', '0953987412', '2025-05-01 14:17:17', '2025-05-01 14:17:17', 1),
+	(7, 'a', 'a@gmail.com', '$2y$10$vLibq1w3SzNpiKXVm4.Isu0A6nxXQsbLHY6ORtZ.WJUaYr/h7y4nS', 'N/A, 12430, 333, 33', '0908347930', '2025-05-01 14:20:24', '2025-05-01 14:20:24', 1),
+	(8, 'b', 'b@gmail.com', '$2y$10$6FPe9RVuRmMwCP8u7k1sVOTpp4hL61CwY6RL69MR0oAylorXZJusu', 'N/A, 11293, 300, 30', '435345543', '2025-05-01 14:21:33', '2025-05-01 14:21:33', 1);
 
 /*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
