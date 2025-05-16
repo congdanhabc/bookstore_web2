@@ -2,14 +2,15 @@
 
 namespace App\Models;
 
-use function PHPSTORM_META\type;
-
 class Book {
     public $id;
+    public $category;
     public $category_id;
     public $name;
     public $author;
+    public $authorID;
     public $publisher;
+    public $publisherID;
     public $description;
     public $price;
     public $sale_price;
@@ -27,8 +28,11 @@ class Book {
         $book = new Book();
         $book->id = $bookData['id'];
         $book->category_id = $bookData['category_id'];
+        $book->category = Category::getCategoryName($bookData['category_id'], $db);
         $book->name = $bookData['name'];
-        $book->author = Author::getAuthorName($bookData['author_id'], $db); // Lấy tên tác giả từ bảng authors
+        $book->authorID = $bookData['author_id'];
+        $book->author = Author::getAuthorName($bookData['author_id'], $db);
+        $book->publisherID = $bookData['publisher_id'];
         $book->publisher = Publisher::getPublisherName($bookData['publisher_id'], $db);
         $book->description = $bookData['description'];
         $book->price = $bookData['price'];
@@ -52,11 +56,13 @@ class Book {
         $book->price = $bookData['price'];
         $book->sale_price = $bookData['sale_price'];
         $book->image = $bookData['image'];
+        $book->publisher = Publisher::getPublisherName($bookData['publisher_id'], $db);
+        $book->category = Category::getCategoryName($bookData['category_id'], $db);
         return $book;
     }
 
     public static function getAllBooks($db) {
-        $sql = "SELECT id, name, author_id, price, sale_price, image FROM books";
+        $sql = "SELECT id, name, author_id, publisher_id, category_id, price, sale_price, image FROM books";
         $books = $db->fetchAll($sql);
 
         // Chuyển đổi kết quả thành mảng các đối tượng Book
@@ -68,9 +74,9 @@ class Book {
         return $bookObjects;
     }
 
-    public function getBooksWithFiltersAndPagination(array $filters, int $limit, int $offset ,$db): array
+    public static function getBooksWithFiltersAndPagination(array $filters, int $limit, int $offset ,$db): array
     {
-        $sql = "SELECT id, name, author_id, price, sale_price, image FROM books";
+        $sql = "SELECT id, name, author_id, price, sale_price, image, publisher_id, category_id FROM books";
         $params = [];
         $whereClauses = [];
 
@@ -94,10 +100,10 @@ class Book {
         }
         
         // Sắp xếp
-        $sql .= " ORDER BY ".$filters['sort'] . " ".($filters['ascending'] === true ? "ASC" : "DESC");
+        $sql .= " ORDER BY ".$filters['sort']. " ".($filters['ascending'] === true ? "ASC" : "DESC");
 
         // Phân trang
-        $sql .= " LIMIT " . $limit . " OFFSET " . $offset;
+        $sql .= " LIMIT $limit OFFSET $offset";
 
         // print($sql);
 
@@ -108,11 +114,11 @@ class Book {
         foreach ($books as $book) {
             $bookObjects[] = self::createBookObjectForList($book, $db);
         }
-
+        
         return $bookObjects;
     }
 
-    public function countBooksWithFilters(array $filters ,$db): int
+    public static function countBooksWithFilters(array $filters ,$db): int
     {
         $sql = "SELECT COUNT(id) FROM books";
         $params = [];
@@ -150,8 +156,24 @@ class Book {
         $sql = "SELECT * FROM books WHERE id = $id";
         $book = $db->fetch($sql);
         $bookObject = self::createBookObject($book, $db);
-
         return $bookObject;
+    }
+
+    public static function getBooksByID_Cart($id ,$db) {
+        $sql = "SELECT * FROM books WHERE id = $id";
+        $book = $db->fetch($sql);
+        $bookObject = self::createBookObjectForList($book, $db);
+        return $bookObject;
+    }
+
+    public static function suggestBookbyID($id, $suggest_type, $suggest_typeID, $db){
+        $sql = "SELECT id, name, author_id, price, sale_price, image, publisher_id, category_id FROM books WHERE id != $id AND $suggest_type = $suggest_typeID ORDER BY RAND() LIMIT 5";
+        $books = $db->fetchAll($sql);
+        $bookObjectsList = [];
+        foreach ($books as $book) {
+            $bookObjectsList[] = self::createBookObjectForList($book, $db);
+        }
+        return $bookObjectsList;
     }
 
 }

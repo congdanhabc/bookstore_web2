@@ -7,7 +7,7 @@
 <body class="font-sans bg-gray-100">
     <?php include APP_DIR . '/Views/layout/header.php'; ?>
 
-    <div class="bg-gray-100 mb-[50px]">
+    <div class="bg-gray-100">
         <div class="mainprinfo bg-gray-100">
             <ul class="mainprinfo-list  ml-[157px] flex list-none py-2 px-2">
                 <li class="mainprinfo-item  mainprinfo-btn relative pr-1"><a href="#" class="text-blue-500 font-semibold text-sm hover:underline">Trang chủ</a></li>
@@ -22,7 +22,7 @@
                     <div class="grid__column-5  bg-white h-fit px-[50px] py-[50px] flex justify-center">
                         <?php if ($book->price != $book->sale_price) : ?>
                             <div class="off-info relative">
-                                <h2 class="sm-title absolute top-0 left-0 w-21 text-center bg-red-500 text-white inline-block p-2 text-sm font-bold z-10">SALE OFF</h2>
+                                <h2 class="sm-title absolute top-0 left-0 w-21 text-center bg-red-500 text-white inline-block p-2 text-sm font-bold z-1">SALE OFF</h2>
                             </div>
                         <?php endif; ?>
                         <div class="img-product text-center h-fit">
@@ -45,7 +45,8 @@
                                         <span class="text-orange-500 font-bold text-sm lg:text-base"><?php echo htmlentities($book->publisher) ; ?></span>
                                     </li>
                                 </ul>
-                                <form action="/cart/add/<?php echo $book->id; ?>" method="post">
+                                <form action="/cart/add" method="post">
+                                    <input type="hidden" name="book_id" value="<?php echo htmlspecialchars($book->id); ?>">
                                     <ul class="price-product-info flex list-none pt-[20px]">
                                         <?php if ($book->sale_price != $book->price): ?>
                                             <li class="product-price px-[7px] text-gray-500 line-through text-sm lg:text-base">
@@ -67,7 +68,7 @@
                                                 <button type="button" id="decrement" class="px-3 py-2 text-gray-600 hover:text-gray-700 hover:bg-gray-100 focus:outline-none">
                                                     -
                                                 </button>
-                                                <input type="text" id="numberInput" oninput="validateNumberInput(this)" class="w-16 text-center focus:outline-none border-none appearance-none" value="1"/>
+                                                <input type="text" name="quantity" id="numberInput" oninput="validateNumberInput(this)" class="w-16 text-center focus:outline-none border-none appearance-none" value="1"/>
                                                 <button type="button" id="increment" class="px-3 py-2 text-gray-600 hover:text-gray-700 hover:bg-gray-100 focus:outline-none">
                                                     +
                                                 </button>
@@ -98,6 +99,10 @@
                                 <ul class="filter_product" id="Dropdown5">
                                     <li>
                                         <div class="pro-inf px-2">
+                                            <ul class="flex list-none">
+                                                <li class="info-first text-cyan-500 text-sm lg:text-base pt-1">Thể loại: </li>
+                                                <li class="info-second-2 text-cyan-500 text-sm text-bold lg:text-base pt-1 ml-2"><?php echo htmlentities($book->category) ; ?></li>
+                                            </ul>
                                             <ul class="flex list-none">
                                                 <li class="info-first text-cyan-500 text-sm lg:text-base pt-1">Ngày xuất bản: </li>
                                                 <li class="info-second-2 text-cyan-500 text-sm text-bold lg:text-base pt-1 ml-2"><?php echo htmlentities($book->publish_year) ; ?></li>
@@ -172,168 +177,66 @@
             <div class="recomment-1 text-center pt-10">
                 <h3 class="text-red-500 text-2xl lg:text-3xl font-bold">Gợi ý Sách liên quan</h3>
             </div>
+
             <div class="recomment-2 text-center pt-16 pb-6">
-                <h3 class="text-red-500 text-2xl lg:text-3xl font-bold">Sản phẩm liên quan</h3>
+                <h3 class="text-red-500 text-2xl lg:text-3xl font-bold">Sản phẩm cùng <?php echo htmlentities($suggest1[0]) ; ?> </h3>
             </div>
             <div class="include px-4">
                 <div class="product-kind max-w-[1250px] mx-auto grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-y-8 text-center pl-10">
+
+                <?php foreach ($suggest1[1] as $book): ?>     
                     <div class="product-1">
-                        <a href="#"><img class="image-1" src="../img-productinfo/sach48 (2).jpg" alt=""></a>
+                        <a href="/books/<?php echo htmlentities($book->id); ?>"><img class="image-1" src="\images\books\<?php echo htmlentities($book->image); ?>" alt="" style="margin-left: 16%;"></a>
                         <div class="text">
-                            <h1 class="text-1 text-left mt-2 text-gray-700 text-sm">Nhà xuất bản lẻ</h1>
-                            <p class="text-2 text-left mt-1"><a href="#" class="no-underline hover:underline text-sm text-cyan-700">Thế Gian Này Dẫu Đẹp Nhưng Cũng Chẳng Bằng Em</a></p>
+                            <h1 class="text-1 text-left mt-2 text-gray-700 text-sm">
+                                <?php 
+                                if(str_contains($suggest1[0],'thể loại'))
+                                    echo htmlentities($book->author); 
+                                else
+                                    echo htmlentities($book->publisher); 
+                                ?>
+                            </h1>
+                            <p class="text-2 text-left mt-1"><a href="#" class="no-underline hover:underline text-sm text-cyan-700"><?php echo htmlentities($book->name); ?></a></p>
                         </div>
                         <div class="price mt-2 text-left text-sm">
-                            <p class="price-index text-blue-800 font-bold">140,000đ</p>
-                            <p class="price-index-1 text-gray-500 line-through inline-block ml-2">120,000đ</p>
+                            <p class="price-index text-blue-800 font-bold"><?php echo htmlentities(number_format($book->sale_price, 0, ',', ' ')); ?> đ</p>
+                            <?php if ($book->sale_price != $book->price): ?>
+                                <p class="price-index-1 text-gray-500 line-through inline-block ml-2"><?php echo htmlentities(number_format($book->price, 0, ',', ' ')); ?> đ</p>
+                            <?php endif; ?>
                         </div>
-                        <div class="star mt-1 text-left">
+                        <!-- <div class="star mt-1 text-left">
                             <p><i class='bx bxs-star text-yellow-500'></i><i class='bx bxs-star text-yellow-500'></i><i class='bx bxs-star text-yellow-500'></i><i class='bx bxs-star text-yellow-500'></i><i class='bx bxs-star text-yellow-500'></i></p>
-                        </div>
-                        <button class="buy bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-4 rounded mt-2"><a href="../html/formlogin.html" class="no-underline text-white">BUY NOW</a></button>
+                        </div> -->
+                        <button class="buy bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-4 rounded mt-2"><a href="/books/<?php echo htmlentities($book->id); ?>" class="no-underline text-white">Chi tiết</a></button>
                     </div>
-                    <div class="product-1">
-                        <a href="#"><img class="image-1" src="../img-productinfo/sach49.jpg" alt=""></a>
-                        <div class="text">
-                            <h1 class="text-1 text-left mt-2 text-gray-700 text-sm">Nhà xuất bản lẻ</h1>
-                            <p class="text-2 text-left mt-1"><a href="#" class="no-underline hover:underline text-sm text-cyan-700">Không Biết Làm Sao Để Trưởng Thành</a></p>
-                        </div>
-                        <div class="price mt-2 text-left text-sm">
-                            <p class="price-index text-blue-800 font-bold">175,000đ</p>
-                            <p class="price-index-1 text-gray-500 line-through inline-block ml-2">165,000đ</p>
-                        </div>
-                        <div class="star mt-1 text-left">
-                            <p><i class='bx bxs-star text-yellow-500'></i><i class='bx bxs-star text-yellow-500'></i><i class='bx bxs-star text-yellow-500'></i><i class='bx bxs-star text-yellow-500'></i><i class='bx bxs-star text-yellow-500'></i></p>
-                        </div>
-                        <button class="buy bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-4 rounded mt-2"><a href="../html/formlogin.html" class="no-underline text-white">BUY NOW</a></button>
-                    </div>
-                    <div class="product-1">
-                        <a href="#"><img class="image-1" src="../img-productinfo/sach50.jpg" alt=""></a>
-                        <div class="text">
-                            <h1 class="text-1 text-left mt-2 text-gray-700 text-sm">Nhà xuất bản lẻ</h1>
-                            <p class="text-2 text-left mt-1"><a href="#" class="no-underline hover:underline text-sm text-cyan-700">Gửi Bạn, Người Đang Bỏ Lỡ Hạnh Phúc Ngày Hôm Nay</a></p>
-                        </div>
-                        <div class="price mt-2 text-left text-sm">
-                            <p class="price-index text-blue-800 font-bold">200,000đ</p>
-                            <p class="price-index-1 text-gray-500 line-through inline-block ml-2">185,000đ</p>
-                        </div>
-                        <div class="star mt-1 text-left">
-                            <p><i class='bx bxs-star text-yellow-500'></i><i class='bx bxs-star text-yellow-500'></i><i class='bx bxs-star text-yellow-500'></i><i class='bx bxs-star text-yellow-500'></i><i class='bx bxs-star text-yellow-500'></i></p>
-                        </div>
-                        <button class="buy bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-4 rounded mt-2"><a href="../html/formlogin.html" class="no-underline text-white">BUY NOW</a></button>
-                    </div>
-                    <div class="product-1">
-                        <a href="#"><img class="image-1" src="../img-productinfo/sach51.jpg" alt=""></a>
-                        <div class="text">
-                            <h1 class="text-1 text-left mt-2 text-gray-700 text-sm">Nhà xuất bản lẻ</h1>
-                            <p class="text-2 text-left mt-1"><a href="#" class="no-underline hover:underline text-sm text-cyan-700">Cuộc Đời Ngắn Lắm Đừng Ôm Muộn Phiền </a></p>
-                        </div>
-                        <div class="price mt-2 text-left text-sm">
-                            <p class="price-index text-blue-800 font-bold">185,000đ</p>
-                            <p class="price-index-1 text-gray-500 line-through inline-block ml-2">175,000đ</p>
-                        </div>
-                        <div class="star mt-1 text-left">
-                            <p><i class='bx bxs-star text-yellow-500'></i><i class='bx bxs-star text-yellow-500'></i><i class='bx bxs-star text-yellow-500'></i><i class='bx bxs-star text-yellow-500'></i><i class='bx bxs-star text-yellow-500'></i></p>
-                        </div>
-                        <button class="buy bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-4 rounded mt-2"><a href="../html/formlogin.html" class="no-underline text-white">BUY NOW</a></button>
-                    </div>
-                    <div class="product-1">
-                        <a href="#"><img class="image-1" src="../img-productinfo/sach52.jpg" alt=""></a>
-                        <div class="text">
-                            <h1 class="text-1 text-left mt-2 text-gray-700 text-sm">Nhà xuất bản lẻ</h1>
-                            <p class="text-2 text-left mt-1"><a href="#" class="no-underline hover:underline text-sm text-cyan-700">Những Điều Tốt Đẹp Luôn Đúng Hạn Mà Đến</a></p>
-                        </div>
-                        <div class="price mt-2 text-left text-sm">
-                            <p class="price-index text-blue-800 font-bold">160,000đ</p>
-                            <p class="price-index-1 text-gray-500 line-through inline-block ml-2">150,000đ</p>
-                        </div>
-                        <div class="star mt-1 text-left">
-                            <p><i class='bx bxs-star text-yellow-500'></i><i class='bx bxs-star text-yellow-500'></i><i class='bx bxs-star text-yellow-500'></i><i class='bx bxs-star text-yellow-500'></i><i class='bx bxs-star text-yellow-500'></i></p>
-                        </div>
-                        <button class="buy bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-4 rounded mt-2"><a href="../html/formlogin.html" class="no-underline text-white">BUY NOW</a></button>
-                    </div>
-                </div>
+                <?php endforeach; ?>
             </div>
+            
+
             <div class="recomment-3 text-center pt-12 pb-6">
-                <h3 class="text-red-500 text-2xl lg:text-3xl font-bold">Sản phẩm đã xem</h3>
+                <h3 class="text-red-500 text-2xl lg:text-3xl font-bold">Sản phẩm cùng <?php echo htmlentities($suggest2[0]) ; ?></h3>
             </div>
             <div class="include px-4">
                 <div class="product-kind max-w-[1250px] mx-auto grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-y-8 text-center pl-10">
+                <?php foreach ($suggest2[1] as $book): ?>     
                     <div class="product-1">
-                        <a href="#"><img class="image-1" src="../img-productinfo/sach53.jpg" alt=""></a>
+                        <a href="/books/<?php echo htmlentities($book->id); ?>"><img class="image-1" src="\images\books\<?php echo htmlentities($book->image); ?>" alt="" style="margin-left: 16%;"></a>
                         <div class="text">
-                            <h1 class="text-1 text-left mt-2 text-gray-700 text-sm">Nhà xuất bản lẻ</h1>
-                            <p class="text-2 text-left mt-1"><a href="#" class="no-underline hover:underline text-sm text-cyan-700">Xuân Qua Hạ Đến</a></p>
+                            <h1 class="text-1 text-left mt-2 text-gray-700 text-sm"><?php echo htmlentities($book->author); ?></h1>
+                            <p class="text-2 text-left mt-1"><a href="#" class="no-underline hover:underline text-sm text-cyan-700"><?php echo htmlentities($book->name); ?></a></p>
                         </div>
                         <div class="price mt-2 text-left text-sm">
-                            <p class="price-index text-blue-800 font-bold">120,000đ</p>
-                            <p class="price-index-1 text-gray-500 line-through inline-block ml-2">115,000đ</p>
+                            <p class="price-index text-blue-800 font-bold"><?php echo htmlentities(number_format($book->sale_price, 0, ',', ' ')); ?> đ</p>
+                            <?php if ($book->sale_price != $book->price): ?>
+                                <p class="price-index-1 text-gray-500 line-through inline-block ml-2"><?php echo htmlentities(number_format($book->price, 0, ',', ' ')); ?> đ</p>
+                            <?php endif; ?>
                         </div>
-                        <div class="star mt-1 text-left">
+                        <!-- <div class="star mt-1 text-left">
                             <p><i class='bx bxs-star text-yellow-500'></i><i class='bx bxs-star text-yellow-500'></i><i class='bx bxs-star text-yellow-500'></i><i class='bx bxs-star text-yellow-500'></i><i class='bx bxs-star text-yellow-500'></i></p>
-                        </div>
-                        <button class="buy bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-4 rounded mt-2"><a href="../html/formlogin.html" class="no-underline text-white">BUY NOW</a></button>
+                        </div> -->
+                        <button class="buy bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-4 rounded mt-2"><a href="/books/<?php echo htmlentities($book->id); ?>" class="no-underline text-white">Chi tiết</a></button>
                     </div>
-                    <div class="product-1">
-                        <a href="#"><img class="image-1" src="../img-productinfo/sach54.jpg" alt=""></a>
-                        <div class="text">
-                            <h1 class="text-1 text-left mt-2 text-gray-700 text-sm">Nhà xuất bản lẻ</h1>
-                            <p class="text-2 text-left mt-1"><a href="#" class="no-underline hover:underline text-sm text-cyan-700">Đừng Buồn Khi Hoàng Hôn Buông</a></p>
-                        </div>
-                        <div class="price mt-2 text-left text-sm">
-                            <p class="price-index text-blue-800 font-bold">180,000đ</p>
-                            <p class="price-index-1 text-gray-500 line-through inline-block ml-2">175,000đ</p>
-                        </div>
-                        <div class="star mt-1 text-left">
-                            <p><i class='bx bxs-star text-yellow-500'></i><i class='bx bxs-star text-yellow-500'></i><i class='bx bxs-star text-yellow-500'></i><i class='bx bxs-star text-yellow-500'></i><i class='bx bxs-star text-yellow-500'></i></p>
-                        </div>
-                        <button class="buy bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-4 rounded mt-2"><a href="../html/formlogin.html" class="no-underline text-white">BUY NOW</a></button>
-                    </div>
-                    <div class="product-1">
-                        <a href="#"><img class="image-1" src="../img-productinfo/sach55.jpg" alt=""></a>
-                        <div class="text">
-                            <h1 class="text-1 text-left mt-2 text-gray-700 text-sm">Nhà xuất bản lẻ</h1>
-                            <p class="text-2 text-left mt-1"><a href="#" class="no-underline hover:underline text-sm text-cyan-700">Đi Vòng Thế Giới Vẫn Quanh Một Người</a></p>
-                        </div>
-                        <div class="price mt-2 text-left text-sm">
-                            <p class="price-index text-blue-800 font-bold">140,000đ</p>
-                            <p class="price-index-1 text-gray-500 line-through inline-block ml-2">135,000đ</p>
-                        </div>
-                        <div class="star mt-1 text-left">
-                            <p><i class='bx bxs-star text-yellow-500'></i><i class='bx bxs-star text-yellow-500'></i><i class='bx bxs-star text-yellow-500'></i><i class='bx bxs-star text-yellow-500'></i><i class='bx bxs-star text-yellow-500'></i></p>
-                        </div>
-                        <button class="buy bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-4 rounded mt-2"><a href="../html/formlogin.html" class="no-underline text-white">BUY NOW</a></button>
-                    </div>
-                    <div class="product-1">
-                        <a href="#"><img class="image-1" src="../img-productinfo/sach56.jpg" alt=""></a>
-                        <div class="text">
-                            <h1 class="text-1 text-left mt-2 text-gray-700 text-sm">Nhà xuất bản lẻ</h1>
-                            <p class="text-2 text-left mt-1"><a href="#" class="no-underline hover:underline text-sm text-cyan-700">Đừng Nản Chí, Cố Lên Nào!</a></p>
-                        </div>
-                        <div class="price mt-2 text-left text-sm">
-                            <p class="price-index text-blue-800 font-bold">210,000đ</p>
-                            <p class="price-index-1 text-gray-500 line-through inline-block ml-2">200,000đ</p>
-                        </div>
-                        <div class="star mt-1 text-left">
-                            <p><i class='bx bxs-star text-yellow-500'></i><i class='bx bxs-star text-yellow-500'></i><i class='bx bxs-star text-yellow-500'></i><i class='bx bxs-star text-yellow-500'></i><i class='bx bxs-star text-yellow-500'></i></p>
-                        </div>
-                        <button class="buy bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-4 rounded mt-2"><a href="../html/formlogin.html" class="no-underline text-white">BUY NOW</a></button>
-                    </div>
-                    <div class="product-1">
-                        <a href="#"><img class="image-1" src="../img-productinfo/sach57.jpg" alt=""></a>
-                        <div class="text">
-                            <h1 class="text-1 text-left mt-2 text-gray-700 text-sm">Nhà xuất bản lẻ</h1>
-                            <p class="text-2 text-left mt-1"><a href="#" class="no-underline hover:underline text-sm text-cyan-700">Khi Bình Minh Tới Tớ Sẽ Đến Gặp Cậu Đầu Tiên</a></p>
-                        </div>
-                        <div class="price mt-2 text-left text-sm">
-                            <p class="price-index text-blue-800 font-bold">220,000đ</p>
-                            <p class="price-index-1 text-gray-500 line-through inline-block ml-2">215,000đ</p>
-                        </div>
-                        <div class="star mt-1 text-left">
-                            <p><i class='bx bxs-star text-yellow-500'></i><i class='bx bxs-star text-yellow-500'></i><i class='bx bxs-star text-yellow-500'></i><i class='bx bxs-star text-yellow-500'></i><i class='bx bxs-star text-yellow-500'></i></p>
-                        </div>
-                        <button class="buy bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-4 rounded mt-2"><a href="../html/formlogin.html" class="no-underline text-white">BUY NOW</a></button>
-                    </div>
+                <?php endforeach; ?>                   
                 </div>
             </div>
             <div class="background-product bg-gray-100 h-16 max-w-full"></div>

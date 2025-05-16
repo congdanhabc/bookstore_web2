@@ -76,4 +76,13 @@ class Database {
             die("Lỗi execute: " . $e->getMessage());
         }
     }
+
+    //Trả về ID của hàng cuối cùng được chèn.
+    public function lastInsertId(?string $name = null)
+    {
+        if ($this->pdo) {
+            return $this->pdo->lastInsertId($name);
+        }
+        return false;
+    }
 }

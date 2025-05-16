@@ -35,30 +35,38 @@
                 <input type="password" name="password" class="input-field" placeholder="Mật khẩu" required>
                 <input type="checkbox" class="chech-box"><span class="password">Lưu mật khẩu</span>
                 <button type="submit" class="submit-btn">Đăng nhập</button>
-                <br><a href="#" class="login-admin">Quên mật khẩu ?</a></br>
+                <!-- <br><a href="#" class="login-admin">Quên mật khẩu ?</a></br> -->
             </form>
             <form id="register" class="input-group" action="/register" method="POST">
                 <?php if (isset($error_register)): ?>
                     <p class="error-message"><?php echo htmlspecialchars($error_register); ?></p>
                 <?php endif; ?>
                 <input type="text" name="name" class="input-field" placeholder="Họ tên" required>
-                <select class="form-select form-select-sm mb-3" id="city" name="city" aria-label=".form-select-sm" style="width: 215px;">
-                    <option value="" selected>Chọn tỉnh thành</option>           
-                </select>
                         
-                <select class="form-select form-select-sm mb-3" id="district" name="district" aria-label=".form-select-sm">
+                <!-- <select class="form-select form-select-sm mb-3" id="district" name="district" aria-label=".form-select-sm">
                     <option value="" selected>Chọn quận huyện</option>
                 </select>
 
                 <select class="form-select form-select-sm" id="ward" name="ward" aria-label=".form-select-sm">
                     <option value="" selected>Chọn phường xã</option>
-                </select>
+                </select> -->
 
                 <input type="text" class="input-field" placeholder="Số nhà - Tên đường" name="address" required>
+                <input type="text" class="w-45 mb-3" placeholder="Phường/Xã" name="ward" required>
+                <input type="text" class="w-45 mb-3" placeholder="Quận/Huyện" name="district" required>
+                <select class="form-select form-select-sm mb-3" id="city" name="city" aria-label=".form-select-sm" style="width: 215px;">
+                    <option value="" selected>Chọn tỉnh thành</option>
+                    <?php
+                    foreach ($provinces as $province) {
+                        echo('<option value="' . htmlentities($province['id']) . '">' . htmlentities($province['name']) . '</option>');
+                    }
+                    ?>             
+                </select>
+
                 <input type="number" class="input-field" placeholder="Số điện thoại" name="phone" required>
                 <input type="email" class="input-field" placeholder="Email" name="email" required>
                 <input type="password" class="input-field" placeholder="Mật khẩu" name="password" required>
-                <input type="password" class="input-field" placeholder="Nhập lại mật khẩu" name="password_confirmation" required>
+                <!-- <input type="password" class="input-field" placeholder="Nhập lại mật khẩu" name="password_confirmation" required> -->
                 <input type="checkbox" class="chech-box" required><span class="agree">Tôi đồng ý với các điều kiện và điều khoản</span>
                 <button type="submit" class="submit-btn">Đăng ký</button>
             </form>
@@ -84,7 +92,7 @@
         }
 </script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
 <script>
     var citis = document.getElementById("city");
     var districts = document.getElementById("district");
@@ -126,6 +134,6 @@
         }
     };
     }
-</script>
+</script> -->
 
 </html>

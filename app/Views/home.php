@@ -54,329 +54,36 @@
             </div>
         </div>
         <div class="name">SÁCH THỊNH HÀNH</div>
-        <div class="noel">
-            <div class="noel-1">
-                <img src="/images/Screenshot 2022-11-11 214833.png" alt="">
-            </div>
-            <div class="noel-2">
-                <img src="/images/Screenshot 2022-11-11 215415.png" alt="">
-            </div>
-        </div>
     </div>
     <!--TẠO KHUNG VÀ THÔNG TIN SẢN PHẨM THỨ NHẤT-->
     <div class="include">
-        <div class="product">
-            <div class="product-1">
-                <a href="../html/productinfo.html"><img class="image-1" src="../img-index/sach9.jpg" alt=""></a>
-                <div class="text">
-                    <h1 class="text-1">Nhà xuất bản lẻ</h1>
-                    <p class="text-2"><a href="../html/productinfo.html">Án Mạng Đêm Giáng Sinh</a></p>
-                </div>
-                <div class="price">
-                    <p class="price-index">190,000đ</p>
-                    <p class="price-index-1">180,000đ</p>
-                </div>
-                <div class="star">
-                    <p><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i></p>
-                </div>
-                <button class="buy"><a href="../html/formlogin.html">BUY NOW</a></button>
-                <div class="price-down-index">
-                    <h2 class="price-down-index-1">-10%</h2>
-                </div>
-            </div>
-        </div>
-        <div class="button-index">
-            <button class="button-index-1"><a href="../html/product.html">XEM THÊM SẢN PHẨM THỊNH HÀNH</a></button>
-        </div>
-        <div class="banner-2">
-            <img class="img-index-2" src="https://file.hstatic.net/200000504927/file/banner_tu_sach_3__1__41467c981fb44490841581056ab818e9.png" alt="">
-        </div>
-        <!--KHUNG SẢN PHẨM THỨ HAI-->
-        <div class="name-1">Best seller mọi thời đại</div>
         <div class="product-in">
+            <?php 
+            $count = 0;
+            foreach ($data as $product): ?>
             <div class="product-1">
-                <a href="../html/productinfo.html"><img class="image-1" src="../img/Screenshot 2022-12-03 021459.png" alt=""></a>
+                <a href="/books/<?php echo $product->id; ?>"><img class="image-1" src="/images/books/<?php echo $product->image; ?>" alt=""></a>
                 <div class="text">
-                    <h1 class="text-1">Nhà xuất bản lẻ</h1>
-                    <p class="text-2"><a href="../html/productinfo.html">Một Đời Thương Thuyết</a></p>
+                    <h1 class="text-1"><?php echo $product->publisher; ?></h1>
+                    <p class="text-2"><a href="/books/<?php echo $product->id; ?>"><?php echo $product->name; ?></a></p>
                 </div>
                 <div class="price">
-                    <p class="price-index">135,000đ</p>
-                    <p class="price-index-1">125,000đ</p>
+                    <p class="price-index"><?php echo htmlentities(number_format($product->price, 0, ',', ' ')); ?> đ</p>
+                    <p class="price-index-1"><?php echo htmlentities(number_format($product->price, 0, ',', ' ')); ?> đ</p>
                 </div>
                 <div class="star">
                     <p><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i></p>
                 </div>
                 <button class="buy"><a href="../html/formlogin.html">BUY NOW</a></button>
-                <div class="price-down-index">
-                    <h2 class="price-down-index-1">-10%</h2>
-                </div>
             </div>
-            <div class="product-1">
-                <a href="../html/productinfo.html"><img class="image-1" src="../img-index/sach10.jpg" alt=""></a>
-                <div class="text">
-                    <h1 class="text-1">Nhà xuất bản lẻ</h1>
-                    <p class="text-2"><a href="../html/productinfo.html">Cuộc Đời Của Pi</a></p>
-                </div>
-                <div class="price">
-                    <p class="price-index">140,000đ</p>
-                    <p class="price-index-1">130,000đ</p>
-                </div>
-                <div class="star">
-                    <p><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i></p>
-                </div>
-                <button class="buy"><a href="../html/formlogin.html">BUY NOW</a></button>
-                <div class="price-down-index">
-                    <h2 class="price-down-index-1">-10%</h2>
-                </div>
-            </div>
-            <div class="product-1">
-                <a href="../html/productinfo.html"><img class="image-1" src="../img-index/sach11.jpg" alt=""></a>
-                <div class="text">
-                    <h1 class="text-1">Nhà xuất bản lẻ</h1>
-                    <p class="text-2"><a href="../html/productinfo.html">Ác Qủy Thành Phố Trắng</a></p>
-                </div>
-                <div class="price">
-                    <p class="price-index">225,000đ</p>
-                    <p class="price-index-1">215,000đ</p>
-                </div>
-                <div class="star">
-                    <p><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i></p>
-                </div>
-                <button class="buy"><a href="../html/formlogin.html">BUY NOW</a></button>
-                <div class="price-down-index">
-                    <h2 class="price-down-index-1">-10%</h2>
-                </div>
-            </div>
-            <div class="product-1">
-                <a href="../html/productinfo.html"><img class="image-1" src="../img-index/sach12.jpg" alt=""></a>
-                <div class="text">
-                    <h1 class="text-1">Nhà xuất bản lẻ</h1>
-                    <p class="text-2"><a href="../html/productinfo.html">Chúng Ta Thấy Lại Những Vì Sao</a></p>
-                </div>
-                <div class="price">
-                    <p class="price-index">175,000đ</p>
-                    <p class="price-index-1">165,000đ</p>
-                </div>
-                <div class="star">
-                    <p><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i></p>
-                </div>
-                <button class="buy"><a href="../html/formlogin.html">BUY NOW</a></button>
-                <div class="price-down-index">
-                    <h2 class="price-down-index-1">-10%</h2>
-                </div>
-            </div>
-            <div class="product-1">
-                <a href="../html/productinfo.html"><img class="image-1" src="../img-index/sach13.jpg" alt=""></a>
-                <div class="text">
-                    <h1 class="text-1">Nhà xuất bản lẻ</h1>
-                    <p class="text-2"><a href="../html/productinfo.html">Có Bố Đây, Đừng Sợ!</a></p>
-                </div>
-                <div class="price">
-                    <p class="price-index">150,000đ</p>
-                    <p class="price-index-1">135,000đ</p>
-                </div>
-                <div class="star">
-                    <p><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i></p>
-                </div>
-                <button class="buy"><a href="../html/formlogin.html">BUY NOW</a></button>
-                <div class="price-down-index">
-                    <h2 class="price-down-index-1">-10%</h2>
-                </div>
-            </div>
-            <div class="product-1">
-                <a href="../html/productinfo.html"><img class="image-1" src="../img-index/sach14.jpg" alt=""></a>
-                <div class="text">
-                    <h1 class="text-1">Nhà xuất bản lẻ</h1>
-                    <p class="text-2"><a href="../html/productinfo.html">Tuổi Trẻ Đáng Giá Bao Nhiêu</a></p>
-                </div>
-                <div class="price">
-                    <p class="price-index">180,000đ</p>
-                    <p class="price-index-1">170,000đ</p>
-                </div>
-                <div class="star">
-                    <p><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i></p>
-                </div>
-                <button class="buy"><a href="../html/formlogin.html">BUY NOW</a></button>
-                <div class="price-down-index">
-                    <h2 class="price-down-index-1">-10%</h2>
-                </div>
-            </div>
-            <div class="product-1">
-                <a href="../html/productinfo.html"><img class="image-1" src="../img-index/sach15.jpg" alt=""></a>
-                <div class="text">
-                    <h1 class="text-1">Nhà xuất bản lẻ</h1>
-                    <p class="text-2"><a href="../html/productinfo.html">Trưởng Thành Không Đau</a></p>
-                </div>
-                <div class="price">
-                    <p class="price-index">115,000đ</p>
-                    <p class="price-index-1">105,000đ</p>
-                </div>
-                <div class="star">
-                    <p><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i></p>
-                </div>
-                <button class="buy"><a href="../html/formlogin.html">BUY NOW</a></button>
-                <div class="price-down-index">
-                    <h2 class="price-down-index-1">-10%</h2>
-                </div>
-            </div>
-            <div class="product-1">
-                <a href="../html/productinfo.html"><img class="image-1" src="../img-index/sach16.jpg" alt=""></a>
-                <div class="text">
-                    <h1 class="text-1">Nhà xuất bản lẻ</h1>
-                    <p class="text-2"><a href="../html/productinfo.html">Không Gì Không Thể Khi Bạn Cố Gắng </a></p>
-                </div>
-                <div class="price">
-                    <p class="price-index">210,000đ</p>
-                    <p class="price-index-1">200,000đ</p>
-                </div>
-                <div class="star">
-                    <p><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i></p>
-                </div>
-                <button class="buy"><a href="../html/formlogin.html">BUY NOW</a></button>
-                <div class="price-down-index">
-                    <h2 class="price-down-index-1">-10%</h2>
-                </div>
-            </div>
-            <div class="product-1">
-                <a href="../html/productinfo.html"><img class="image-1" src="../img-index/sach17.jpg" alt=""></a>
-                <div class="text">
-                    <h1 class="text-1">Nhà xuất bản lẻ</h1>
-                    <p class="text-2"><a href="../html/productinfo.html">Đời Là Những Niềm Vui Bé Nhỏ</a></p>
-                </div>
-                <div class="price">
-                    <p class="price-index">110,000đ</p>
-                    <p class="price-index-1">100,000đ</p>
-                </div>
-                <div class="star">
-                    <p><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i></p>
-                </div>
-                <button class="buy"><a href="../html/formlogin.html">BUY NOW</a></button>
-                <div class="price-down-index">
-                    <h2 class="price-down-index-1">-10%</h2>
-                </div>
-            </div>
-            <div class="product-1">
-                <a href="../html/productinfo.html"><img class="image-1" src="../img-index/sach18.jpg" alt=""></a>
-                <div class="text">
-                    <h1 class="text-1">Nhà xuất bản lẻ</h1>
-                    <p class="text-2"><a href="../html/productinfo.html">Cuộc Đời Rực Rỡ Đừng Sống Không Màu</a></p>
-                </div>
-                <div class="price">
-                    <p class="price-index">190,000đ</p>
-                    <p class="price-index-1">180,000đ</p>
-                </div>
-                <div class="star">
-                    <p><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i></p>
-                </div>
-                <button class="buy"><a href="../html/formlogin.html">BUY NOW</a></button>
-                <div class="price-down-index">
-                    <h2 class="price-down-index-1">-10%</h2>
-                </div>
-            </div>
-        </div>
-        <div class="button-index">
-            <button class="button-index-1"><a href="../html/product.html">XEM THÊM SẢN PHẨM BEST SELLER MỌI THỜI ĐẠI</a></button>
+            <?php
+            $count++;
+            if($count > 9)
+                break;
+            endforeach ?>
         </div>
         <div class="banner-2">
             <img class="img-index-2" src="https://file.hstatic.net/200000504927/file/banner_tu_sach__1__21e82fd5f34041a1b817e9f4140ed0e9.png" alt="">
-        </div>
-        <!--SÁCH MỚI-->
-        <div class="name-2">SÁCH MỚI</div>
-        <div class="product-info">
-            <div class="product-1">
-                <a href="../html/productinfo.html"><img class="image-1" src="../img-index/sach19.jpg" alt=""></a>
-                <div class="text">
-                    <h1 class="text-1">Nhà xuất bản lẻ</h1>
-                    <p class="text-2"><a href="../html/productinfo.html">Phải Lòng Với Cô Đơn </a></p>
-                </div>
-                <div class="price">
-                    <p class="price-index">90,000đ</p>
-                    <p class="price-index-1">80,000đ</p>
-                </div>
-                <div class="star">
-                    <p><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i></p>
-                </div>
-                <button class="buy"><a href="../html/formlogin.html">BUY NOW</a></button>
-                <div class="price-down-index">
-                    <h2 class="price-down-index-1">-10%</h2>
-                </div>
-            </div>
-            <div class="product-1">
-                <a href="../html/productinfo.html"><img class="image-1" src="../img-index/sach20.jpg" alt=""></a>
-                <div class="text">
-                    <h1 class="text-1">Nhà xuất bản lẻ</h1>
-                    <p class="text-2"><a href="../html/productinfo.html">Đừng Hoài Phí Tuổi Trẻ</a></p>
-                </div>
-                <div class="price">
-                    <p class="price-index">145,000đ</p>
-                    <p class="price-index-1">135,000đ</p>
-                </div>
-                <div class="star">
-                    <p><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i></p>
-                </div>
-                <button class="buy"><a href="../html/formlogin.html">BUY NOW</a></button>
-                <div class="price-down-index">
-                    <h2 class="price-down-index-1">-10%</h2>
-                </div>
-            </div>
-            <div class="product-1">
-                <a href="../html/productinfo.html"><img class="image-1" src="../img-index/sach21.jpg" alt=""></a>
-                <div class="text">
-                    <h1 class="text-1">Nhà xuất bản lẻ</h1>
-                    <p class="text-2"><a href="../html/productinfo.html">Hãy Sống Từng Ngày Trọn Vẹn</a></p>
-                </div>
-                <div class="price">
-                    <p class="price-index">170,000đ</p>
-                    <p class="price-index-1">160,000đ</p>
-                </div>
-                <div class="star">
-                    <p><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i></p>
-                </div>
-                <button class="buy"><a href="../html/formlogin.html">BUY NOW</a></button>
-                <div class="price-down-index">
-                    <h2 class="price-down-index-1">-10%</h2>
-                </div>
-            </div>
-            <div class="product-1">
-                <a href="../html/productinfo.html"><img class="image-1" src="../img-index/sach22.jpg" alt=""></a>
-                <div class="text">
-                    <h1 class="text-1">Nhà xuất bản lẻ</h1>
-                    <p class="text-2"><a href="../html/productinfo.html">Làm Bạn Với Bầu Trời</a></p>
-                </div>
-                <div class="price">
-                    <p class="price-index">150,000đ</p>
-                    <p class="price-index-1">135,000đ</p>
-                </div>
-                <div class="star">
-                    <p><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i></p>
-                </div>
-                <button class="buy"><a href="../html/formlogin.html">BUY NOW</a></button>
-                <div class="price-down-index">
-                    <h2 class="price-down-index-1">-10%</h2>
-                </div>
-            </div>
-            <div class="product-1">
-                <a href="../html/productinfo.html"><img class="image-1" src="../img-index/sach23.jpg" alt=""></a>
-                <div class="text">
-                    <h1 class="text-1">Nhà xuất bản lẻ</h1>
-                    <p class="text-2"><a href="../html/productinfo.html">Những Mùi Vị Bước Qua Con Tim</a></p>
-                </div>
-                <div class="price">
-                    <p class="price-index">150,000đ</p>
-                    <p class="price-index-1">135,000đ</p>
-                </div>
-                <div class="star">
-                    <p><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i></p>
-                </div>
-                <button class="buy"><a href="../html/formlogin.html">BUY NOW</a></button>
-                <div class="price-down-index">
-                    <h2 class="price-down-index-1">-10%</h2>
-                </div>
-            </div>
-        </div>
-        <div class="button-index">
-            <button class="button-index-1"><a href="../html/product.html">XEM TẤT CẢ SẢN PHẨM</a></button>
         </div>
         <div class="banner-2">
             <img class="img-index-2" src="https://file.hstatic.net/200000504927/file/banner_tu_sach_daf4237d4f9f4659986b07d221d57b7b.png" alt="">

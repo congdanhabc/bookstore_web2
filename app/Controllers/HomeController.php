@@ -2,8 +2,8 @@
 
 namespace App\Controllers;
 
-use App\Core\Controller; 
-use App\Models\Book;
+use App\Core\Controller;
+use App\Models\Book; 
 
 class HomeController extends Controller {
     private $db; // Thêm thuộc tính $db
@@ -13,6 +13,7 @@ class HomeController extends Controller {
     }
 
     public function index() {
-        return $this->view('home');
+        $data = Book::getAllBooks($this->db);
+        return $this->view('home', $data);
     }
 }
