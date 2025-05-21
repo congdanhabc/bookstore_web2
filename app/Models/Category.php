@@ -29,4 +29,10 @@ class Category {
         $category->description = $categoryData['description'];
         return $category;
     }
+
+    public static function getCategoryName($id, $db) {
+        $sql = "SELECT name FROM categories WHERE id = $id";
+        $result = $db->fetch($sql);
+        return $result['name'];
+    }
 }

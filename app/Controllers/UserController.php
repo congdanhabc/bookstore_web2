@@ -2,7 +2,8 @@
 
 namespace App\Controllers;
 
-use App\Core\Controller; 
+use App\Core\Controller;
+use App\Models\Province;
 use App\Models\User;
 
 class UserController extends Controller {
@@ -31,7 +32,11 @@ class UserController extends Controller {
         }
     }
     public function login() {
-        return $this->view('user/login');
+        $provinces = Province::getAllProvince($this->db);
+        $data = [
+            'provinces' => $provinces
+        ];
+        return $this->view('user/login', $data);
     }
     public function authenticate() {
         // 1. Lấy dữ liệu từ form
@@ -78,9 +83,37 @@ class UserController extends Controller {
     }
     public function profile() {
         $user = User::getUserByID($_SESSION['user_id'], $this->db);
+        $provinces = Province::getAllProvince($this->db);
         $data = [
             'user' => $user,
+            'provinces' => $provinces
         ];
+        return $this->view('/user/profile', $data);
+    }
+
+    public function update() {
+        // 1. Lấy dữ liệu từ form
+        $user_id = $_SESSION['user_id'];
+        $data = $_POST;
+
+        // 2. Gọi model để cập nhật thông tin người dùng
+        $updateResult = User::update($data, $user_id, $this->db);
+
+        $user = User::getUserByID($_SESSION['user_id'], $this->db);
+        $provinces = Province::getAllProvince($this->db);
+        $data = [
+            'user' => $user,
+            'provinces' => $provinces,
+        ];
+
+        // 3. Xử lý kết quả cập nhật
+        if ($updateResult) {
+            // Cập nhật thành công
+            $data['success'] = 'Cập nhật thông tin thành công!';            
+        } else {
+            // Cập nhật thất bại
+            $data['error'] = 'Đã có lỗi xảy ra khi cập nhật thông tin. Vui lòng thử lại sau.';
+        }
         return $this->view('/user/profile', $data);
     }
 }

@@ -5,7 +5,7 @@ namespace App\Controllers;
 use App\Core\Controller; 
 use App\Models\Book;
 use App\Models\Category;
-
+use Exception;
 
 class BookController extends Controller {
     private $db; // Thêm thuộc tính $db
@@ -52,10 +52,9 @@ class BookController extends Controller {
                 'search' => $search,
             ];
 
-            // 3. Gọi Model để lấy dữ liệu
-            $bookModel = new Book(); // Hoặc cách bạn khởi tạo Model
-            $books = $bookModel->getBooksWithFiltersAndPagination($filters, $limit, $offset, $this->db); // Lấy sách cho trang hiện tại
-            $totalBooks = $bookModel->countBooksWithFilters($filters, $this->db); // Đếm tổng số sách phù hợp
+            // 3. Lấy dữ liệu
+            $books = Book::getBooksWithFiltersAndPagination($filters, $limit, $offset, $this->db); // Lấy sách cho trang hiện tại
+            $totalBooks = Book::countBooksWithFilters($filters, $this->db); // Đếm tổng số sách phù hợp
 
             // 4. Tính toán phân trang
             $totalPages = ceil($totalBooks / $limit);
@@ -95,6 +94,22 @@ class BookController extends Controller {
         $data = [
             'book' => $book,
         ];
+
+        $suggest_author = $book->author != 'Nhiều Tác Giả' ? Book::suggestBookbyID($id, 'author_id', $book->authorID, $this->db) : [];
+        $suggest1 = $suggest_author ? $suggest_author : [];
+        if (count($suggest1) < 5) {
+            $suggest1 = Book::suggestBookbyID($id, 'category_id', $book->category_id, $this->db);
+            $data['suggest1'] = $suggest1 ? ["thể loại: ".$book->category ,$suggest1] : [];
+        }
+        else {
+            $data['suggest1'] = $suggest1 ? ["tác giả: ".$book->author ,$suggest1] : [];
+        }
+
+        $suggest_publisher = Book::suggestBookbyID($id, 'publisher_id', $book->publisherID, $this->db);
+        $suggest2 = $suggest_publisher ? $suggest_publisher : [];
+        $data['suggest2'] = $suggest2 ? ["NXB: ".$book->publisher ,$suggest2] : [];
+
+
         return $this->view('/book/productinfo', $data);
     }
 

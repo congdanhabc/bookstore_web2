@@ -1,227 +1,349 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/doan.css">
-    <link rel="stylesheet" href="../css/orders.css">
-    <title>Book Store</title>
+    <title>Thanh toán - Nhà sách online</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+    </style>
 </head>
+<body class="bg-gray-100">
+    <div class="container mx-auto py-8 px-4 sm:px-6 lg:px-8">
+        <h1 class="text-3xl font-bold text-gray-800 mb-8">Thanh toán</h1>
 
-<body>
-    <div class="container">
-        <div class="navigation">
-            <ul>
-                <li>
-                    <a href="../Admin/Doan.html">
-                        <span class="icon"><ion-icon name="book-outline"></ion-icon></span>
-                        <span class="title">Book Store</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="../Admin/Doan.html">
-                        <span class="icon"><ion-icon name="home-outline"></ion-icon></span>
-                        <span class="title">Dashboard</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="../Admin/customers.html">
-                        <span class="icon"><ion-icon name="people-outline"></ion-icon></span>
-                        <span class="title">Customers</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="../Admin/new_products.html">
-                        <span class="icon"><ion-icon name="bag-outline"></ion-icon></span>
-                        <span class="title">New Products</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="../Admin/orders.html">
-                        <span class="icon"><ion-icon name="cart-outline"></ion-icon></ion-icon></span>
-                        <span class="title">Orders</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="../Admin/inventory.html">
-                        <span class="icon"><ion-icon name="storefront-outline"></ion-icon></span>
-                        <span class="title">Inventory</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="../Admin/Password.html">
-                        <span class="icon"><ion-icon name="person-circle-outline"></ion-icon></span>
-                        <span class="title">Accounts</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="../html/formlogin.html">
-                        <span class="icon"><ion-icon name="log-out-outline"></ion-icon></span>
-                        <span class="title">Sign Out</span>
-                    </a>
-                </li>
-            </ul>
-        </div>
+        <div class="flex flex-col lg:flex-row gap-8">
+            <!-- Thông tin đơn hàng -->
+            <div class="lg:w-1/2">
+                <div class="bg-white rounded-lg shadow-md overflow-hidden mb-6">
+                    <div class="p-4 border-b">
+                        <h2 class="text-xl font-semibold text-gray-800">Thông tin giao hàng</h2>
+                    </div>
+                    <div class="p-6">
+                        <form id="shipping-form">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div class="col-span-2">
+                                    <label for="fullname" class="block text-sm font-medium text-gray-700 mb-1">Họ và tên</label>
+                                    <input type="text" id="fullname" name="fullname" required
+                                        class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                </div>
 
-        <!--main-->
-        <div class="main">
-            <div class="topbar">
-                <div class="toggle">
-                    <ion-icon name="menu-outline"></ion-icon>
-                </div>
-                <!--search-->
-                <div class="search">
-                    <label>
-                    <input type="text" placeholder="Search here">
-                    <ion-icon name="search-outline"></ion-icon>
-                </label>
-                </div>
-                <!--userimg-->
-                <div class="user">
-                    <img src="../img/user.png" alt="">
-                </div>
-            </div>
+                                <div>
+                                    <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">Số điện thoại</label>
+                                    <input type="tel" id="phone" name="phone" required
+                                        class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                </div>
 
-            <div class="content">
-                <div class="cards-1">
-                    <div class="content-2">
-                        <div class="recent-payments">
-                            <div class="cardHeader">
-                                <h2>Khách hàng đặt hàng online gần nhất</h2>
+                                <div>
+                                    <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                                    <input type="email" id="email" name="email" required
+                                        class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                </div>
+
+                                <div class="col-span-2">
+                                    <label for="address" class="block text-sm font-medium text-gray-700 mb-1">Địa chỉ</label>
+                                    <input type="text" id="address" name="address" required
+                                        class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                </div>
+
+                                <div>
+                                    <label for="province" class="block text-sm font-medium text-gray-700 mb-1">Tỉnh/Thành phố</label>
+                                    <select id="province" name="province" required
+                                        class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                        <option value="">Chọn Tỉnh/Thành phố</option>
+                                        <option value="hanoi">Hà Nội</option>
+                                        <option value="hochiminh">TP. Hồ Chí Minh</option>
+                                        <option value="danang">Đà Nẵng</option>
+                                        <!-- Thêm các tỉnh/thành phố khác -->
+                                    </select>
+                                </div>
+
+                                <div>
+                                    <label for="district" class="block text-sm font-medium text-gray-700 mb-1">Quận/Huyện</label>
+                                    <select id="district" name="district" required
+                                        class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                        <option value="">Chọn Quận/Huyện</option>
+                                    </select>
+                                </div>
+
+                                <div class="col-span-2">
+                                    <label for="note" class="block text-sm font-medium text-gray-700 mb-1">Ghi chú</label>
+                                    <textarea id="note" name="note" rows="3"
+                                        class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+                                </div>
                             </div>
-                            <table>
-                                <tr>
-                                    <th>STT</th>
-                                    <th>Ảnh</th>
-                                    <th>Họ & Tên</th>
-                                    <th>Số điện thoại</th>
-                                    <th>Thời gian</th>
-                                    <th>Đặt hàng</th>
-                                    <th>Sản phẩm</th>
-                                    <th>Số lượng</th>
-                                    <th>Tổng cộng</th>
-                                    <th>Giảm giá</th>
-                                    <th>Hành động</th>
-                                </tr>
-
-                                <tr>
-                                    <td>1</td>
-                                    <td><img class="profile" src="../img/boy.png" alt=""></td>
-                                    <td>Hoàng Nam</td>
-                                    <td><a class="tel-phone" href="tel:0978485868">09.78.48.58.68</a></td>
-                                    <td>9:30am</td>
-                                    <td>10/11/2022</td>
-                                    <td><img class="profile-1" src="../img/thay_doi_mot_suy_nghi_thay_doi_ca_cuoc_doi.jpg" alt=""><img class="profile-1" src="../img/dev_up.jpg" alt=""></td>
-                                    <td class="amount">2</td>
-                                    <td>201.000đ</td>
-                                    <td class="discount">Đã giảm 10%</td>
-                                    <td class="group-btn">
-                                        <a class="btn-2" href="">Thêm<a class="btn-3" href="delete.page?id=1" onclick="return confirm('Bạn có chắc chắn xóa không ?')">Xoá</a></a>
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td>2</td>
-                                    <td><img class="profile" src="../img/boy.png" alt=""></td>
-                                    <td>Đặng Bảo</td>
-                                    <td><a class="tel-phone" href="tel:0978485868">09.78.48.58.68</a></td>
-                                    <td>8:49am</td>
-                                    <td>10/11/2022</td>
-                                    <td><img class="profile-1" src="../img/nguoi_nhay_cam.jpg" alt=""></td>
-                                    <td class="amount">1</td>
-                                    <td>65.000đ</td>
-                                    <td class="discount">Đã giảm 3%</td>
-                                    <td class="group-btn">
-                                        <a class="btn-2" href="">Thêm<a class="btn-3" href="delete.page?id=1" onclick="return confirm('Bạn có chắc chắn xóa không ?')">Xoá</a></a>
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td>3</td>
-                                    <td><img class="profile" src="../img/girl.png" alt=""></td>
-                                    <td>Lan Ngọc</td>
-                                    <td><a class="tel-phone" href="tel:0978485868">09.78.48.58.68</a></td>
-                                    <td>8:28am</td>
-                                    <td>09/11/2022</td>
-                                    <td><img class="profile-1" src="../img/tam_ly_hoc_moi_quan_he.jpg" alt=""><img class="profile-1" src="../img/living_big.jpg" alt=""><img class="profile-1" src="../img/ho_so_tam_ly.jpg" alt=""><img class="profile-1" src="../img/gia_nhu_toi_biet_truoc_dieu_nay_khi_thi_dai_hoc.jpg"
-                                            alt=""></td>
-                                    <td class="amount">4</td>
-                                    <td>389.370đ</td>
-                                    <td class="discount">Đã giảm 20%</td>
-                                    <td class="group-btn">
-                                        <a class="btn-2" href="">Thêm<a class="btn-3" href="delete.page?id=1" onclick="return confirm('Bạn có chắc chắn xóa không ?')">Xoá</a></a>
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td>4</td>
-                                    <td><img class="profile" src="../img/girl.png" alt=""></td>
-                                    <td>Hồng Nga</td>
-                                    <td><a class="tel-phone" href="tel:0978485868">09.78.48.58.68</a></td>
-                                    <td>7:51am</td>
-                                    <td>08/11/2022</td>
-                                    <td><img class="profile-1" src="../img/nhung_dieu_tot_dep.jpg" alt=""></td>
-                                    <td class="amount">1</td>
-                                    <td>78.000đ</td>
-                                    <td class="discount">Đã giảm 3%</td>
-                                    <td class="group-btn">
-                                        <a class="btn-2" href="">Thêm<a class="btn-3" href="delete.page?id=1" onclick="return confirm('Bạn có chắc chắn xóa không ?')">Xoá</a></a>
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td>5</td>
-                                    <td><img class="profile" src="../img/boy.png" alt=""></td>
-                                    <td>Hữu Nghĩa</td>
-                                    <td><a class="tel-phone" href="tel:0978485868">09.78.48.58.68</a></td>
-                                    <td>7:21am</td>
-                                    <td>08/11/2022</td>
-                                    <td><img class="profile-1" src="../img/2000_tu_tieng_anh.jpg" alt=""><img class="profile-1" src="../img/hanh_tinh_cua_1_ke_nghi_nhieu.jpg" alt=""></td>
-                                    <td class="amount">2</td>
-                                    <td>190.300đ</td>
-                                    <td class="discount">Đã giảm 9%</td>
-                                    <td class="group-btn">
-                                        <a class="btn-2" href="">Thêm<a class="btn-3" href="delete.page?id=1" onclick="return confirm('Bạn có chắc chắn xóa không ?')">Xoá</a></a>
-                                    </td>
-                                </tr>
-
-                            </table>
-                        </div>
+                        </form>
                     </div>
                 </div>
 
+                <div class="bg-white rounded-lg shadow-md overflow-hidden mb-6">
+                    <div class="p-4 border-b">
+                        <h2 class="text-xl font-semibold text-gray-800">Phương thức thanh toán</h2>
+                    </div>
+                    <div class="p-6">
+                        <div class="space-y-4">
+                            <div class="flex items-center">
+                                <input type="radio" id="cod" name="payment_method" value="cod" checked
+                                    class="h-4 w-4 text-blue-600 focus:ring-blue-500">
+                                <label for="cod" class="ml-3 block text-sm font-medium text-gray-700">
+                                    Thanh toán khi nhận hàng (COD)
+                                </label>
+                            </div>
 
-                <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-                <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+                            <div class="flex items-center">
+                                <input type="radio" id="vnpay" name="payment_method" value="vnpay"
+                                    class="h-4 w-4 text-blue-600 focus:ring-blue-500">
+                                <label for="vnpay" class="ml-3 block text-sm font-medium text-gray-700">
+                                    Thanh toán qua VNPay
+                                </label>
+                            </div>
 
-                <script>
-                    //Menu
-                    let toggle = document.querySelector('.toggle');
-                    let navigation = document.querySelector('.navigation');
-                    let main = document.querySelector('.main');
+                            <div id="vnpay-info" class="hidden mt-4 p-4 bg-blue-50 rounded-md border border-blue-200">
+                                <div class="flex items-center mb-3">
+                                    <img src="https://cdn.haitrieu.com/wp-content/uploads/2022/10/Logo-VNPAY-QR-1.png" alt="VNPay" class="h-10">
+                                    <span class="ml-3 text-sm text-gray-700">Thanh toán an toàn với VNPay</span>
+                                </div>
+                                <p class="text-sm text-gray-600">Bạn sẽ được chuyển đến cổng thanh toán VNPay để hoàn tất thanh toán sau khi đặt hàng.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-                    toggle.onclick = function() {
-                        navigation.classList.toggle('active');
-                        main.classList.toggle('active');
-                    }
+            <!-- Tổng quan đơn hàng -->
+            <div class="lg:w-1/2">
+                <div class="bg-white rounded-lg shadow-md overflow-hidden mb-6">
+                    <div class="p-4 border-b">
+                        <h2 class="text-xl font-semibold text-gray-800">Đơn hàng của bạn</h2>
+                    </div>
 
+                    <div class="p-4 divide-y divide-gray-200">
+                        <div id="order-items">
+                            <!-- Danh sách sản phẩm sẽ được thêm bằng JavaScript -->
+                        </div>
 
+                        <div class="py-4">
+                            <div class="flex justify-between mb-2">
+                                <span class="text-gray-600">Tạm tính</span>
+                                <span id="checkout-subtotal" class="font-medium">0 VNĐ</span>
+                            </div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-gray-600">Phí vận chuyển</span>
+                                <span id="checkout-shipping" class="font-medium">0 VNĐ</span>
+                            </div>
+                            <div id="free-shipping-message" class="text-sm text-green-600 mb-2 hidden">
+                                Miễn phí vận chuyển cho đơn hàng từ 300.000 VNĐ
+                            </div>
+                        </div>
 
-                    //add hovered class in selected list item
-                    let list = document.querySelectorAll('.navigation li');
+                        <div class="py-4">
+                            <div class="flex justify-between">
+                                <span class="text-lg font-medium">Tổng thanh toán</span>
+                                <span id="checkout-total" class="text-lg font-bold text-blue-600">0 VNĐ</span>
+                            </div>
+                        </div>
+                    </div>
 
-                    function activeLink() {
-                        list.forEach((item) =>
-                            item.classList.remove('hovered'));
-                        this.classList.add('hovered');
-                    }
-                    list.forEach((item) =>
-                        item.addEventListener('mouseover', activeLink));
-                </script>
+                    <div class="p-4 bg-gray-50">
+                        <button id="place-order" class="w-full bg-blue-600 text-white py-3 px-4 rounded-md hover:bg-blue-700">
+                            Đặt hàng
+                        </button>
+                        <p class="text-sm text-gray-500 mt-3">
+                            Bằng cách nhấn "Đặt hàng", bạn đồng ý với
+                            <a href="#" class="text-blue-600 hover:underline">Điều khoản dịch vụ</a> và
+                            <a href="#" class="text-blue-600 hover:underline">Chính sách bảo mật</a> của chúng tôi.
+                        </p>
+                    </div>
+                </div>
 
+                <div class="flex items-center justify-center mb-6">
+                    <img src="https://cdn.haitrieu.com/wp-content/uploads/2022/10/Icon-VNPAY-QR-1024x800.png" alt="VNPay" class="h-10 mr-2">
+                    <img src="https://inkythuatso.com/uploads/thumbnails/800/2021/09/logo-momo-inkythuatso-01-13-16-04-11.jpg" alt="MoMo" class="h-10 mr-2">
+                    <img src="https://cdn.haitrieu.com/wp-content/uploads/2022/10/Logo-Visa-Blue-2006-2014.png" alt="Visa" class="h-7 mr-2">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Mastercard-logo.svg/800px-Mastercard-logo.svg.png" alt="Mastercard" class="h-7">
+                </div>
 
+                <div class="flex items-center justify-center">
+                    <a href="cart.html" class="text-blue-600 hover:text-blue-700 flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                        </svg>
+                        Quay lại giỏ hàng
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Dữ liệu mẫu giỏ hàng (trong thực tế sẽ lấy từ localStorage hoặc API)
+        let cartItems = [
+            {
+                id: '1',
+                title: 'Đắc Nhân Tâm',
+                author: 'Dale Carnegie',
+                price: 85000,
+                image: 'https://salt.tikicdn.com/cache/w1200/ts/product/83/c8/d7/2e33da51cab200f18e21bd9d9a32c17c.jpg',
+                quantity: 1
+            },
+            {
+                id: '2',
+                title: 'Nhà Giả Kim',
+                author: 'Paulo Coelho',
+                price: 69000,
+                image: 'https://salt.tikicdn.com/cache/w1200/ts/product/05/b7/c6/11a9b4699bea74fe39a4b4dda7bb5e3d.jpg',
+                quantity: 2
+            },
+            {
+                id: '3',
+                title: 'Tuổi Trẻ Đáng Giá Bao Nhiêu',
+                author: 'Rosie Nguyễn',
+                price: 75000,
+                image: 'https://salt.tikicdn.com/cache/w1200/ts/product/36/19/10/185abc66cc0345019e932358ee17d21f.jpg',
+                quantity: 1
+            }
+        ];
+
+        // Format tiền tệ
+        function formatCurrency(amount) {
+            return new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' })
+                .format(amount)
+                .replace('₫', 'VNĐ');
+        }
+
+        // Tính toán tổng tiền
+        function calculateSubtotal() {
+            return cartItems.reduce((total, item) => total + (item.price * item.quantity), 0);
+        }
+
+        // Tính phí vận chuyển
+        function calculateShipping(subtotal) {
+            return (subtotal < 300000) ? 30000 : 0;
+        }
+
+        // Cập nhật hiển thị đơn hàng
+        function updateOrderSummary() {
+            const orderItemsContainer = document.getElementById('order-items');
+            const subtotal = calculateSubtotal();
+            const shipping = calculateShipping(subtotal);
+            const total = subtotal + shipping;
+
+            // Xóa tất cả sản phẩm cũ
+            orderItemsContainer.innerHTML = '';
+
+            // Thêm các sản phẩm vào danh sách
+            cartItems.forEach(item => {
+                const itemElement = document.createElement('div');
+                itemElement.className = 'flex items-center justify-between py-4';
+                itemElement.innerHTML = `
+                    <div class="flex items-center">
+                        <img src="${item.image}" alt="${item.title}" class="w-12 h-12 object-cover rounded-md mr-4">
+                        <div>
+                            <h3 class="text-sm font-medium text-gray-800">${item.title}</h3>
+                            <p class="text-sm text-gray-500">${item.quantity} x ${formatCurrency(item.price)}</p>
+                        </div>
+                    </div>
+                    <span class="font-medium">${formatCurrency(item.price * item.quantity)}</span>
+                `;
+                orderItemsContainer.appendChild(itemElement);
+            });
+
+            // Cập nhật các tổng tiền
+            document.getElementById('checkout-subtotal').textContent = formatCurrency(subtotal);
+
+            const shippingElement = document.getElementById('checkout-shipping');
+            const freeShippingMessage = document.getElementById('free-shipping-message');
+
+            if (shipping > 0) {
+                shippingElement.textContent = formatCurrency(shipping);
+                freeShippingMessage.classList.add('hidden');
+            } else {
+                shippingElement.innerHTML = '<span class="text-green-600">Miễn phí</span>';
+                freeShippingMessage.classList.remove('hidden');
+            }
+
+            document.getElementById('checkout-total').textContent = formatCurrency(total);
+        }
+
+        // Xử lý hiển thị thông tin thanh toán VNPay
+        document.querySelectorAll('input[name="payment_method"]').forEach(input => {
+            input.addEventListener('change', function() {
+                const vnpayInfo = document.getElementById('vnpay-info');
+                if (this.value === 'vnpay') {
+                    vnpayInfo.classList.remove('hidden');
+                } else {
+                    vnpayInfo.classList.add('hidden');
+                }
+            });
+        });
+
+        // Xử lý khi chọn tỉnh/thành phố
+        document.getElementById('province').addEventListener('change', function() {
+            const province = this.value;
+            const districtSelect = document.getElementById('district');
+
+            // Xóa các option cũ
+            districtSelect.innerHTML = '<option value="">Chọn Quận/Huyện</option>';
+
+            // Thêm các quận/huyện tương ứng
+            if (province === 'hanoi') {
+                const hanoiDistricts = ['Ba Đình', 'Hoàn Kiếm', 'Hai Bà Trưng', 'Đống Đa', 'Tây Hồ', 'Cầu Giấy', 'Thanh Xuân', 'Hoàng Mai'];
+                hanoiDistricts.forEach(district => {
+                    const option = document.createElement('option');
+                    option.value = district.toLowerCase().replace(' ', '');
+                    option.textContent = district;
+                    districtSelect.appendChild(option);
+                });
+            } else if (province === 'hochiminh') {
+                const hcmDistricts = ['Quận 1', 'Quận 2', 'Quận 3', 'Quận 4', 'Quận 5', 'Quận 6', 'Quận 7', 'Quận 8', 'Phú Nhuận', 'Bình Thạnh'];
+                hcmDistricts.forEach(district => {
+                    const option = document.createElement('option');
+                    option.value = district.toLowerCase().replace(' ', '');
+                    option.textContent = district;
+                    districtSelect.appendChild(option);
+                });
+            } else if (province === 'danang') {
+                const danangDistricts = ['Hải Châu', 'Thanh Khê', 'Liên Chiểu', 'Ngũ Hành Sơn', 'Sơn Trà', 'Cẩm Lệ'];
+                danangDistricts.forEach(district => {
+                    const option = document.createElement('option');
+                    option.value = district.toLowerCase().replace(' ', '');
+                    option.textContent = district;
+                    districtSelect.appendChild(option);
+                });
+            }
+        });
+
+        // Xử lý đặt hàng
+        document.getElementById('place-order').addEventListener('click', function() {
+            const form = document.getElementById('shipping-form');
+            const formData = new FormData(form);
+            const paymentMethod = document.querySelector('input[name="payment_method"]:checked').value;
+
+            if (!form.checkValidity()) {
+                form.reportValidity();
+                return;
+            }
+
+            // Trong thực tế, gửi dữ liệu đến server ở đây
+            alert('Đơn hàng của bạn đã được đặt thành công!');
+
+            // Chuyển hướng theo phương thức thanh toán
+            if (paymentMethod === 'vnpay') {
+                alert('Bạn sẽ được chuyển đến cổng thanh toán VNPay.');
+                // window.location.href = 'vnpay_payment.html';
+            } else {
+                // window.location.href = 'thank_you.html';
+            }
+        });
+
+        // Khởi tạo trang
+        document.addEventListener('DOMContentLoaded', function() {
+            updateOrderSummary();
+        });
+    </script>
 </body>
-
 </html>

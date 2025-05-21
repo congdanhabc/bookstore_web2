@@ -12,35 +12,23 @@
     <link href="https://fonts.googleapis.com/css2?family=Racing+Sans+One&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Paytone+One&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,700;0,900;1,700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/output.css">
+    <link rel="stylesheet" href="/css/style.css">
     <title>Shop Book</title>
 </head>
-
-<?php
-    $cartHref = '';
-    if (isset($_SESSION['user_id'])) 
-    {
-        $cartHref = '/cart';
-    }
-    else 
-    {
-        $cartHref = '/login';
-    }
-?>
 
 <!--NAVBAR-->
 <header>
         <marquee class="box">
             <div class="box-1">"Việc đọc rất quan trọng! Nếu bạn biết cách đọc, cả thế giới sẽ mở ra cho bạn." - Barack Obama</div>
         </marquee>
-
         <div class="header">
+            
             <h1><a href="/" class="logo">BookStore</a></h1>
             <div class="nav">
                 <ul>
                     <li class="dropdown-1">
-                        <a href="../html/introduce.html">Về BookStore</a>
+                        <a href="/">Về BookStore</a>
                         <div class="dropdown-content">
                             <a href="#">Về BookStore</a>
                             <a href="#">Tìm đồng đội</a>
@@ -98,7 +86,7 @@
                                 ?>
                                     <div class="nav2">
                                         <a href="/login">
-                                            <i class='bx bx-user'></i>
+                                            <i class='bx bx-user text-[25px] text-[#075985]'></i>
                                             Đăng nhập
                                         </a>
                                     </div>
@@ -109,7 +97,7 @@
                                     <div class="dropdown-1">
                                         <button type="button" data-toggle="dropdown">
                                             <div class="nav2">
-                                                <i class='bx bx-user'></i>
+                                                <i class='bx bx-user text-[25px] text-[#075985]'></i>
                                                 Tài khoản
                                             </div>
                                         </button>
@@ -121,16 +109,45 @@
                                 <?php } ?>
                             </td>
                             <td>
-                                <div class="nav2">
-                                    <a href= "<?php $cartHref ?>" >
-                                        <i class='bx bx-cart'></i>
-                                        Giỏ hàng
-                                    </a>
-                                </div>
+                                <div class="nav2 group">
+                                    <div id="cart_1" class="relative">
+                                        <a href='<?php echo(isset($_SESSION['user_id']) ? '/cart' : '/login')?>' id="cart_toggle">
+                                            <span class="cart_icon">
+                                                <i class='bx bx-cart text-[25px] text-[#075985]'></i>
+                                            </span>
+                                            <span class="box_cart_text">
+                                                <span class="cart_text">Giỏ hàng</span>
+                                            </span>                        
+                                        </a>
+                                        
+                                        <?php if (isset($_SESSION['user_id']) && parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH) !== '/cart'): ?>          
+                                        <div class="hidden absolute font-sans text-black bg-gray-100 shadow-xl w-100 h-fit p-5 right-1 rounded-2xl z-10 group-hover:block">
+                                            <div class="items-center flex justify-center w-full">
+                                                <span class="text-[#528b0f] p-3 font-bold text-xl">
+                                                    GIỎ HÀNG
+                                                </span>
+                                            </div>
+                                            
+                                            <div id="miniCartList" class="mt-3 border-t-1 border-gray-400 py-1"></div>
+
+                                            <div id="miniCartTotal" class="flex justify-between"></div>
+                                            
+                                            <div class="items-center flex justify-center w-full mt-2">
+                                                <a href= "/cart" class="w-full flex items-center justify-center border-red-500 border-2 bg-red-500 text-white font-bold py-2 px-4 rounded hover:bg-gray-100 hover:text-red-500 ease-in-out duration-300">
+                                                    <span class="text-base">
+                                                        XEM GIỎ HÀNG
+                                                    </span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <?php endif; ?>
+                                    </div>
+                                </div>                                
                             </td>
                         </tr>
                     </tbody>
                 </table>
             </div>
         </div>
+    <script type="text/javascript" src="/js/mini_cart.js"></script>
 </header>

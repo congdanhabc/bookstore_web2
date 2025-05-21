@@ -7,6 +7,7 @@ class User {
     public $name;
     public $email;
     public $password;
+    public $province_id;
     public $address;
     public $phone;
     public $created_at;
@@ -47,6 +48,7 @@ class User {
         $user->name = $userData['name'];
         $user->email = $userData['email'];
         $user->password = $userData['password'];
+        $user->province_id = $userData['province_id'];
         $user->address = $userData['address'];
         $user->phone = $userData['phone'];
         $user->created_at = $userData['created_at'];
@@ -64,12 +66,13 @@ class User {
         $hashedPassword = password_hash($data['password'], PASSWORD_DEFAULT);
 
         // 4. Thêm người dùng mới vào database
-        $sql = "INSERT INTO users (name, email, password, address, phone, role) VALUES (?, ?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO users (name, email, password, address, province_id, phone, role) VALUES (?, ?, ?, ?, ?, ?, ?)";
         $params = [
             $data['name'],
             $data['email'],
             $hashedPassword,
-            $data['address'].", ".$data['ward'].", ".$data['district'].", ".$data['city'],
+            $data['address'].", ".$data['ward'].", ".$data['district'],
+            $data['city'],
             $data['phone'],
             1
         ];
@@ -89,4 +92,24 @@ class User {
         $user = $db->fetch($sql, $params);
         return $user ? true : false;
     }
+
+    public static function update($data, $user_id, $db) {
+        
+        $sql = "UPDATE users SET name = :name, address = :address, province_id = :province_id, phone = :phone WHERE id = :user_id";
+        $params = [
+            ':name' => $data['name'],
+            ':address' => $data['address'],
+            ':province_id' => $data['city'],
+            ':phone' => $data['phone'],
+            ':user_id' => $user_id
+        ];
+        try {
+            $db->execute($sql, $params);
+            return true;
+        } catch (\PDOException $e) {
+             error_log("CartModel PDOException in updateQuantity: " . $e->getMessage());
+             return false;
+        }
+    }
+
 }

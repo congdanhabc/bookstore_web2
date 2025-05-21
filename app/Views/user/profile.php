@@ -14,12 +14,12 @@
             <div class="max-w-2xl mx-auto bg-white p-8 rounded-lg shadow-md">
                 <h1 class="text-2xl font-bold text-gray-800 mb-6">Hồ sơ Tài khoản</h1>
 
-                <form action="#" method="POST">
+                <form action="/profile/update" method="POST">
                     <!-- Grid for Name Fields -->
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                         <div>
                             <label for="first-name" class="block text-sm font-medium text-gray-700 mb-1">Tên</label>
-                            <input type="text" name="first-name" id="first-name" autocomplete="given-name" value= <?php echo htmlspecialchars($user->name); ?>
+                            <input type="text" name="name" id="name" autocomplete="given-name" value= <?php echo htmlspecialchars($user->name); ?>
                                 class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm text-gray-900"
                                 >
                         </div>
@@ -41,9 +41,22 @@
                     </div>
                     
                     <!-- Address -->
-                     <div class="mb-6">
+                    <div class="mb-6">
                         <label for="address" class="block text-sm font-medium text-gray-700 mb-1">Địa chỉ</label>
                         <input type="text" name="address" id="address" class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm" value="<?php echo htmlspecialchars($user->address); ?>" >
+                    </div>
+
+                    <div class="mb-6">
+                        <label for="city" class="block text-sm font-medium text-gray-700 mb-1">Tỉnh/Thành</label>
+                        <select class="form-select form-select-sm mb-3" id="city" name="city" aria-label=".form-select-sm" style="width: 215px;">
+                            <option value="">Chọn tỉnh thành</option>
+                            <?php
+                            foreach ($provinces as $province) {
+                                $selected = $province['id'] == $user->province_id ? 'selected' : '';
+                                echo('<option '. $selected .' value="' . htmlentities($province['id']) . '">' . htmlentities($province['name']) . '</option>');
+                            }
+                            ?>             
+                        </select>
                     </div>
 
 
@@ -63,12 +76,15 @@
                     </div> -->
 
                     <!-- Action Buttons -->
+                     <?php if (isset($data['error'])): ?>
+                        <p class="error"><?php echo htmlspecialchars($data['error']); ?></p>
+                    <?php endif; ?>
+                    <?php if (isset($data['success'])): // Kiểm tra biến $success_message ?>
+                        <p class="success" style="color: red;"><?php echo htmlspecialchars($data['success']); ?></p>
+                    <?php endif; ?>
                     <div class="pt-6 border-t border-gray-200">
                         <div class="flex justify-start">
-                            <button type="button" class="w-4 mx-[10px] bg-gray-50 text-black py-2 rounded-md shadow-sm">
-                                Hủy bỏ
-                            </button>
-                            <button type="submit" class="w-4 bg-[#06b6d4] text-black py-2 rounded-md shadow-sm">
+                            <button type="submit" class="w-30 h-10 bg-[#06b6d4] text-white py-2 rounded-md shadow-sm">
                                 Lưu thay đổi
                             </button>
                         </div>

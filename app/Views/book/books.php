@@ -10,15 +10,8 @@
     <?php include APP_DIR . '/Views/layout/header.php'; ?>
 
     <div class="mainprinfo">
-        <!-- <ul class="mainprinfo-list">
-            <li class="mainprinfo-item mainprinfo-btn"><a href="index.html">Trang chủ</a></li>
-            <li class="mainprinfo-item mainprinfo-btn-1"><a href="#">Kỹ năng - Công cụ</a></li>
-            <li class="mainprinfo-item mainprinfo-btn-2"> Combo sách của Phan Văn Trường: Thay đổi một suy nghĩ, thay đổi cả cuộc đời - Một đời như kẻ tìm đường - Một đời quản trị - Một đời thương thuyết</li>
-        </ul> -->
     </div>
-    <!-- <div class="banner-2">
-        <img class="img-index-3" src="https://file.hstatic.net/200000504927/file/5-cuon-sach__1__7a220db9e5524215a383ffb88c5006c9.jpg" alt="">
-    </div> -->
+
     <div class="app__container">
         <div class="grid">
             <div class="grid__row app__content">
@@ -125,47 +118,12 @@
                     </div>
                     
                     <div id="home-product" class="home-product"></div>                
-
-                    <!-- <?php if (!empty($books)): ?>
-                    <div class="home-product">
-                        <div class="grid__row">
-                            <?php foreach ($books as $book): ?>
-                            <div class="grid__column-2-2">
-                                <div class="home-product-item">
-                                    <a href="/books/<?php echo htmlentities($book->id); ?>"><img class="image-2" src="\images\books\<?php echo htmlentities($book->image); ?>" alt=""></a>
-                                    <div class="text-product">
-                                        <h1 class="text-product-1"><?php echo htmlentities($book->name); ?></h1>
-                                        <p class="text-product-2"><a href="#"><?php echo htmlentities($book->author); ?></a></p>
-                                    </div>
-                                    <div class="price-product">
-                                        <p class="price-product-1"><?php echo htmlentities(number_format($book->sale_price, 0, ',', ' ')); ?> đ</p>
-                                        <?php if ($book->sale_price != $book->price): ?>
-                                            <p class="price-product-2"><?php echo htmlentities(number_format($book->price, 0, ',', ' ')); ?> đ</p>
-                                        <?php endif; ?>
-                                    </div>
-                                    <div class="star-product">
-                                        <p><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i></p>
-                                    </div>
-                                </div>
-                            </div>
-                            <?php endforeach; ?>
-
-                        </div>
-                    </div>
-                    <?php endif; ?> -->
-
                 </div>
             </div>
         </div>
     </div>
 
     <div class="b-page" id="pagination-container">
-        <!-- <div class="pagination-1">
-            <a href="../html/product.html">&laquo;</a>
-            <a href="../html/product.html">1</a>
-            <a href="../html/product-1.html">2</a>
-            <a href="../html/product-1.html">&raquo;</a>
-        </div> -->
     </div>
 
     <script src="/js/books.js"></script>
